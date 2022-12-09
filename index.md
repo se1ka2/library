@@ -49,9 +49,14 @@ data:
       title: lib/graph/tree/tree.hpp
   - name: lib/structure/union_find
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/structure/union_find/union_find.hpp
       title: lib/structure/union_find/union_find.hpp
-  verificationCategories: []
+  verificationCategories:
+  - name: test/library_checker
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/unionfind.test.cpp
+      title: test/library_checker/unionfind.test.cpp
 layout: toppage
 ---
