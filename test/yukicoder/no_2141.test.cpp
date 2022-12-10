@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/2156"
+#define PROBLEM "https://yukicoder.me/problems/no/2141"
 
 #include <iostream>
 #include <cassert>
