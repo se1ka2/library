@@ -53,9 +53,6 @@ data:
       path: lib/math/combination.hpp
       title: lib/math/combination.hpp
     - icon: ':heavy_check_mark:'
-      path: lib/math/combination_big.hpp
-      title: lib/math/combination_big.hpp
-    - icon: ':heavy_check_mark:'
       path: lib/math/combination_fix_n.hpp
       title: lib/math/combination_fix_n.hpp
     - icon: ':heavy_check_mark:'
@@ -78,11 +75,8 @@ data:
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/yukicoder/no_2130_1.test.cpp
-      title: test/yukicoder/no_2130_1.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/yukicoder/no_2130_2.test.cpp
-      title: test/yukicoder/no_2130_2.test.cpp
+      path: test/yukicoder/no_2130.test.cpp
+      title: test/yukicoder/no_2130.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2141.test.cpp
       title: test/yukicoder/no_2141.test.cpp

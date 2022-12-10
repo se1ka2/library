@@ -4,11 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/no_2130_1.test.cpp
-    title: test/yukicoder/no_2130_1.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/no_2130_2.test.cpp
-    title: test/yukicoder/no_2130_2.test.cpp
+    path: test/yukicoder/no_2130.test.cpp
+    title: test/yukicoder/no_2130.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2141.test.cpp
     title: test/yukicoder/no_2141.test.cpp
@@ -90,9 +87,8 @@ data:
   timestamp: '2022-12-11 02:52:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/no_2130.test.cpp
   - test/yukicoder/no_2141.test.cpp
-  - test/yukicoder/no_2130_2.test.cpp
-  - test/yukicoder/no_2130_1.test.cpp
   - test/yukicoder/no_2156.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document

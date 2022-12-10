@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/no_2130_1.test.cpp
-    title: test/yukicoder/no_2130_1.test.cpp
+    path: test/yukicoder/no_2130.test.cpp
+    title: test/yukicoder/no_2130.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -47,7 +47,7 @@ data:
   timestamp: '2022-12-11 03:25:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/no_2130_1.test.cpp
+  - test/yukicoder/no_2130.test.cpp
 documentation_of: lib/math/combination_fix_n.hpp
 layout: document
 redirect_from:
