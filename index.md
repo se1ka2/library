@@ -49,7 +49,7 @@ data:
       title: lib/graph/tree/tree.hpp
   - name: lib/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/combination.hpp
       title: lib/math/combination.hpp
     - icon: ':heavy_check_mark:'
@@ -61,7 +61,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
   - name: lib/structure/union_find
@@ -83,7 +83,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2130_2.test.cpp
       title: test/yukicoder/no_2130_2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2141.test.cpp
       title: test/yukicoder/no_2141.test.cpp
     - icon: ':heavy_check_mark:'

@@ -9,15 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2130_2.test.cpp
     title: test/yukicoder/no_2130_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2141.test.cpp
     title: test/yukicoder/no_2141.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2156.test.cpp
     title: test/yukicoder/no_2156.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/math/modint.hpp\"\nstruct mint\n{\n    int val;\n\n\
@@ -88,7 +88,7 @@ data:
   path: lib/math/modint.hpp
   requiredBy: []
   timestamp: '2022-12-11 02:52:57+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/no_2141.test.cpp
   - test/yukicoder/no_2130_2.test.cpp
