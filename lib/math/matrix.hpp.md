@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2156.test.cpp
-    title: test/yukicoder/2156.test.cpp
+    path: test/yukicoder/no_2156.test.cpp
+    title: test/yukicoder/no_2156.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -77,7 +77,7 @@ data:
   timestamp: '2022-12-10 18:36:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/2156.test.cpp
+  - test/yukicoder/no_2156.test.cpp
 documentation_of: lib/math/matrix.hpp
 layout: document
 redirect_from:

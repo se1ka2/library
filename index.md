@@ -49,10 +49,19 @@ data:
       title: lib/graph/tree/tree.hpp
   - name: lib/math
     pages:
+    - icon: ':x:'
+      path: lib/math/combination.hpp
+      title: lib/math/combination.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/combination_big.hpp
+      title: lib/math/combination_big.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/combination_fix_n.hpp
+      title: lib/math/combination_fix_n.hpp
     - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
   - name: lib/structure/union_find
@@ -69,7 +78,16 @@ data:
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/yukicoder/2156.test.cpp
-      title: test/yukicoder/2156.test.cpp
+      path: test/yukicoder/no_2130_1.test.cpp
+      title: test/yukicoder/no_2130_1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/no_2130_2.test.cpp
+      title: test/yukicoder/no_2130_2.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/no_2141.test.cpp
+      title: test/yukicoder/no_2141.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/no_2156.test.cpp
+      title: test/yukicoder/no_2156.test.cpp
 layout: toppage
 ---
