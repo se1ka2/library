@@ -47,6 +47,14 @@ data:
     - icon: ':warning:'
       path: lib/graph/tree/tree.hpp
       title: lib/graph/tree/tree.hpp
+  - name: lib/math
+    pages:
+    - icon: ':x:'
+      path: lib/math/matrix.hpp
+      title: lib/math/matrix.hpp
+    - icon: ':x:'
+      path: lib/math/modint.hpp
+      title: lib/math/modint.hpp
   - name: lib/structure/union_find
     pages:
     - icon: ':heavy_check_mark:'
@@ -58,5 +66,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/unionfind.test.cpp
       title: test/library_checker/unionfind.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/2156.test.cpp
+      title: test/yukicoder/2156.test.cpp
 layout: toppage
 ---
