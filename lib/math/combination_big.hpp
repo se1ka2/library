@@ -1,3 +1,18 @@
+mint modpow(mint x, long long n)
+{
+    mint res = 1, r = x;
+    while (n)
+    {
+        if (n & 1)
+        {
+            res *= r;
+        }
+        r *= r;
+        n >>= 1;
+    }
+    return res;
+}
+
 struct combination_big
 {
     long long maxn;
