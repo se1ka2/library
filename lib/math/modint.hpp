@@ -4,16 +4,17 @@ struct mint
 
     mint() : val(0) {}
 
-    mint(long long v) : val(v)
+    mint(long long v)
     {
-        if (abs(val) >= MOD)
+        if (abs(v) >= MOD)
         {
-            val %= MOD;
+            v %= MOD;
         }
-        if (val < 0)
+        if (v < 0)
         {
-            val += MOD;
+            v += MOD;
         }
+        val = v;
     }
 
     mint &operator++()

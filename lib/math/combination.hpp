@@ -37,6 +37,7 @@ struct combination
 
     mint operator()(int n, int k)
     {
+        assert(n <= maxn);
         if (k > n || k < 0)
         {
             return 0;
