@@ -49,10 +49,10 @@ data:
       title: lib/graph/tree/tree.hpp
   - name: lib/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
   - name: lib/structure/union_find
@@ -68,7 +68,7 @@ data:
       title: test/library_checker/unionfind.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/2156.test.cpp
       title: test/yukicoder/2156.test.cpp
 layout: toppage

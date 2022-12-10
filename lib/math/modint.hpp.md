@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/2156.test.cpp
     title: test/yukicoder/2156.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/math/modint.hpp\"\nstruct mint\n{\n    int val;\n\n\
@@ -79,7 +79,7 @@ data:
   path: lib/math/modint.hpp
   requiredBy: []
   timestamp: '2022-12-10 18:36:36+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/2156.test.cpp
 documentation_of: lib/math/modint.hpp
