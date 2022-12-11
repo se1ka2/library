@@ -131,7 +131,7 @@ struct mint
 
     friend std::istream &operator>>(std::istream &is, mint &x)
     {
-        int v;
+        long long v;
         is >> v;
         x = mint(v);
         return is;
