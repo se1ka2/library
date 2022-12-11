@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"lib/graph/flow/bipartite_matching.hpp\"\nstruct bipartite_matching\r\
+  bundledCode: "#line 1 \"lib/graph/matching/bipartite_matching.hpp\"\nstruct bipartite_matching\r\
     \n{\r\n    int p, q;\r\n    mf_graph<int> g;\r\n    std::vector<int> ml, mr;\r\
     \n\r\n    bipartite_matching() {}\r\n\r\n    bipartite_matching(int p, int q)\
     \ : p(p), q(q), g(p + q + 2), ml(p, -1), mr(q, -1)\r\n    {\r\n        for (int\
@@ -53,15 +53,15 @@ data:
     \ left ? g.get_edge(ml[u]).to - p : g.get_edge(mr[u]).from;\r\n    }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
-  path: lib/graph/flow/bipartite_matching.hpp
+  path: lib/graph/matching/bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2022-12-10 07:38:44+09:00'
+  timestamp: '2022-12-12 07:03:27+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: lib/graph/flow/bipartite_matching.hpp
+documentation_of: lib/graph/matching/bipartite_matching.hpp
 layout: document
 redirect_from:
-- /library/lib/graph/flow/bipartite_matching.hpp
-- /library/lib/graph/flow/bipartite_matching.hpp.html
-title: lib/graph/flow/bipartite_matching.hpp
+- /library/lib/graph/matching/bipartite_matching.hpp
+- /library/lib/graph/matching/bipartite_matching.hpp.html
+title: lib/graph/matching/bipartite_matching.hpp
 ---

@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"lib/graph/other/stable_matching.hpp\"\ntemplate <typename\
+  bundledCode: "#line 1 \"lib/graph/matching/stable_matching.hpp\"\ntemplate <typename\
     \ T = int>\r\nstruct edge\r\n{\r\n    int a, b;\r\n    int preference_a, preference_b;\r\
     \n    bool is_matched;\r\n    T cost;\r\n    int id;\r\n\r\n    bool operator<(const\
     \ edge<T> &e) const\r\n    {\r\n        return preference_a < e.preference_a;\r\
@@ -71,15 +71,15 @@ data:
     \  return g[epos[id].first][epos[id].second];\r\n    }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
-  path: lib/graph/other/stable_matching.hpp
+  path: lib/graph/matching/stable_matching.hpp
   requiredBy: []
-  timestamp: '2022-12-10 07:38:44+09:00'
+  timestamp: '2022-12-12 07:03:27+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: lib/graph/other/stable_matching.hpp
+documentation_of: lib/graph/matching/stable_matching.hpp
 layout: document
 redirect_from:
-- /library/lib/graph/other/stable_matching.hpp
-- /library/lib/graph/other/stable_matching.hpp.html
-title: lib/graph/other/stable_matching.hpp
+- /library/lib/graph/matching/stable_matching.hpp
+- /library/lib/graph/matching/stable_matching.hpp.html
+title: lib/graph/matching/stable_matching.hpp
 ---

@@ -4,9 +4,6 @@ data:
   - name: lib/graph/flow
     pages:
     - icon: ':warning:'
-      path: lib/graph/flow/bipartite_matching.hpp
-      title: lib/graph/flow/bipartite_matching.hpp
-    - icon: ':warning:'
       path: lib/graph/flow/max_flow.hpp
       title: lib/graph/flow/max_flow.hpp
     - icon: ':warning:'
@@ -17,6 +14,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/graph.hpp
       title: lib/graph/graph.hpp
+  - name: lib/graph/matching
+    pages:
+    - icon: ':warning:'
+      path: lib/graph/matching/bipartite_matching.hpp
+      title: lib/graph/matching/bipartite_matching.hpp
+    - icon: ':warning:'
+      path: lib/graph/matching/stable_matching.hpp
+      title: lib/graph/matching/stable_matching.hpp
   - name: lib/graph/other
     pages:
     - icon: ':warning:'
@@ -28,9 +33,6 @@ data:
     - icon: ':warning:'
       path: lib/graph/other/scc.hpp
       title: lib/graph/other/scc.hpp
-    - icon: ':warning:'
-      path: lib/graph/other/stable_matching.hpp
-      title: lib/graph/other/stable_matching.hpp
   - name: lib/graph/shortest_path
     pages:
     - icon: ':warning:'
