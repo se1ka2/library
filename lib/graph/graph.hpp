@@ -53,4 +53,9 @@ struct graph
     {
         return g[u];
     }
+
+    inline std::vector<edge<T>> &operator[](const int &u)
+    {
+        return g[u];
+    }
 };
