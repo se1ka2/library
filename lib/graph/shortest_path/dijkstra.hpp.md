@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/no_2095.test.cpp
+    title: test/yukicoder/no_2095.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/graph/shortest_path/dijkstra.hpp\"\ntemplate <typename\
@@ -34,8 +37,9 @@ data:
   path: lib/graph/shortest_path/dijkstra.hpp
   requiredBy: []
   timestamp: '2022-12-10 07:38:44+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/yukicoder/no_2095.test.cpp
 documentation_of: lib/graph/shortest_path/dijkstra.hpp
 layout: document
 redirect_from:

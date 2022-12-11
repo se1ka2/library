@@ -14,7 +14,7 @@ data:
       title: lib/graph/flow/min_cost_flow.hpp
   - name: lib/graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/graph.hpp
       title: lib/graph/graph.hpp
   - name: lib/graph/other
@@ -36,7 +36,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/shortest_path/bfs.hpp
       title: lib/graph/shortest_path/bfs.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/shortest_path/dijkstra.hpp
       title: lib/graph/shortest_path/dijkstra.hpp
   - name: lib/graph/tree
@@ -74,6 +74,9 @@ data:
       title: test/library_checker/unionfind.test.cpp
   - name: test/yukicoder
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/no_2095.test.cpp
+      title: test/yukicoder/no_2095.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2105.test.cpp
       title: test/yukicoder/no_2105.test.cpp
