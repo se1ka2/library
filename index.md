@@ -75,6 +75,9 @@ data:
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/yukicoder/no_2105.test.cpp
+      title: test/yukicoder/no_2105.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2130.test.cpp
       title: test/yukicoder/no_2130.test.cpp
     - icon: ':heavy_check_mark:'

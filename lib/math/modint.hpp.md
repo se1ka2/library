@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/no_2105.test.cpp
+    title: test/yukicoder/no_2105.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2130.test.cpp
     title: test/yukicoder/no_2130.test.cpp
   - icon: ':heavy_check_mark:'
@@ -47,7 +50,7 @@ data:
     \ mint &x, const mint &y)\n    {\n        return x.val != y.val;\n    }\n\n  \
     \  friend std::ostream &operator<<(std::ostream &os, const mint &x)\n    {\n \
     \       return os << x.val;\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, mint &x)\n    {\n        int v;\n        is >> v;\n        x = mint(v);\n\
+    \ &is, mint &x)\n    {\n        long long v;\n        is >> v;\n        x = mint(v);\n\
     \        return is;\n    }\n};\n"
   code: "struct mint\n{\n    int val;\n\n    mint() : val(0) {}\n\n    mint(long long\
     \ v)\n    {\n        if (abs(v) >= MOD)\n        {\n            v %= MOD;\n  \
@@ -78,17 +81,18 @@ data:
     \ y.val;\n    }\n\n    friend bool operator!=(const mint &x, const mint &y)\n\
     \    {\n        return x.val != y.val;\n    }\n\n    friend std::ostream &operator<<(std::ostream\
     \ &os, const mint &x)\n    {\n        return os << x.val;\n    }\n\n    friend\
-    \ std::istream &operator>>(std::istream &is, mint &x)\n    {\n        int v;\n\
-    \        is >> v;\n        x = mint(v);\n        return is;\n    }\n};\n"
+    \ std::istream &operator>>(std::istream &is, mint &x)\n    {\n        long long\
+    \ v;\n        is >> v;\n        x = mint(v);\n        return is;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/modint.hpp
   requiredBy: []
-  timestamp: '2022-12-11 02:52:57+09:00'
+  timestamp: '2022-12-11 22:33:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/no_2130.test.cpp
   - test/yukicoder/no_2141.test.cpp
+  - test/yukicoder/no_2105.test.cpp
   - test/yukicoder/no_2156.test.cpp
 documentation_of: lib/math/modint.hpp
 layout: document
