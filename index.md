@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/flow/max_flow.hpp
       title: lib/graph/flow/max_flow.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/flow/min_cost_flow.hpp
       title: lib/graph/flow/min_cost_flow.hpp
   - name: lib/graph
@@ -77,6 +77,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.test.cpp
       title: test/aoj/GRL_6_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_B.test.cpp
+      title: test/aoj/GRL_6_B.test.cpp
   - name: test/library_checker
     pages:
     - icon: ':heavy_check_mark:'

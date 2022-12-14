@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL_6_B.test.cpp
+    title: test/aoj/GRL_6_B.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/graph/flow/min_cost_flow.hpp\"\ntemplate <typename S\
@@ -20,36 +23,36 @@ data:
     \ (int)g[from].size()));\r\n        g[from].push_back((edge<S, T>){from, to, cap,\
     \ 0, cost, (int)g[to].size(), m});\r\n        g[to].push_back((edge<S, T>){to,\
     \ from, 0, cap, -cost, (int)g[from].size() - 1, m++});\r\n    }\r\n\r\n    std::pair<S,\
-    \ T> min_cost_flow(int source, int sink, S f = -1)\r\n    {\r\n        bool nonnegative\
-    \ = true;\r\n        for (int u = 0; u < n; u++)\r\n        {\r\n            for\
-    \ (edge<S, T> &e : g[u])\r\n            {\r\n                if (e.cap && e.cost\
-    \ + potential[u] - potential[e.to] < 0)\r\n                {\r\n             \
-    \       nonnegative = false;\r\n                }\r\n            }\r\n       \
-    \ }\r\n        assert(nonnegative);\r\n        S sum_of_flow = 0;\r\n        T\
-    \ sum_of_cost = 0;\r\n        using P = std::pair<T, int>;\r\n        std::vector<T>\
-    \ dist(n);\r\n        std::vector<int> prevv(n);\r\n        std::vector<int> preve(n);\r\
-    \n        while (f)\r\n        {\r\n            std::priority_queue<P, std::vector<P>,\
-    \ std::greater<P>> que;\r\n            fill(dist.begin(), dist.end(), -1);\r\n\
-    \            dist[source] = 0;\r\n            que.push(P(dist[source], source));\r\
-    \n            while (!que.empty())\r\n            {\r\n                auto [x,\
-    \ u] = que.top();\r\n                que.pop();\r\n                if (u == sink)\r\
-    \n                {\r\n                    break;\r\n                }\r\n   \
-    \             if (dist[u] < x)\r\n                {\r\n                    continue;\r\
-    \n                }\r\n                for (int i = 0; i < (int)g[u].size(); i++)\r\
-    \n                {\r\n                    edge<S, T> &e = g[u][i];\r\n      \
-    \              if (e.cap == 0)\r\n                    {\r\n                  \
-    \      continue;\r\n                    }\r\n                    int v = e.to;\r\
-    \n                    T cost = e.cost + potential[u] - potential[v];\r\n     \
-    \               if (dist[v] == -1 || dist[v] > dist[u] + cost)\r\n           \
-    \         {\r\n                        dist[v] = dist[u] + cost;\r\n         \
-    \               prevv[v] = u;\r\n                        preve[v] = i;\r\n   \
-    \                     que.push(P(dist[v], v));\r\n                    }\r\n  \
-    \              }\r\n            }\r\n            if (dist[sink] == -1)\r\n   \
-    \         {\r\n                break;\r\n            }\r\n            for (int\
-    \ u = 0; u < n; u++)\r\n            {\r\n                potential[u] += (dist[u]\
-    \ == -1 || dist[u] > dist[sink]) ? dist[sink] : dist[u];\r\n            }\r\n\
-    \            S flow = f;\r\n            for (int u = sink; u != source; u = prevv[u])\r\
-    \n            {\r\n                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap\
+    \ T> get_min_cost_flow(int source, int sink, S f = -1)\r\n    {\r\n        bool\
+    \ nonnegative = true;\r\n        for (int u = 0; u < n; u++)\r\n        {\r\n\
+    \            for (edge<S, T> &e : g[u])\r\n            {\r\n                if\
+    \ (e.cap && e.cost + potential[u] - potential[e.to] < 0)\r\n                {\r\
+    \n                    nonnegative = false;\r\n                }\r\n          \
+    \  }\r\n        }\r\n        assert(nonnegative);\r\n        S sum_of_flow = 0;\r\
+    \n        T sum_of_cost = 0;\r\n        using P = std::pair<T, int>;\r\n     \
+    \   std::vector<T> dist(n);\r\n        std::vector<int> prevv(n);\r\n        std::vector<int>\
+    \ preve(n);\r\n        while (f)\r\n        {\r\n            std::priority_queue<P,\
+    \ std::vector<P>, std::greater<P>> que;\r\n            fill(dist.begin(), dist.end(),\
+    \ -1);\r\n            dist[source] = 0;\r\n            que.push(P(dist[source],\
+    \ source));\r\n            while (!que.empty())\r\n            {\r\n         \
+    \       auto [x, u] = que.top();\r\n                que.pop();\r\n           \
+    \     if (u == sink)\r\n                {\r\n                    break;\r\n  \
+    \              }\r\n                if (dist[u] < x)\r\n                {\r\n\
+    \                    continue;\r\n                }\r\n                for (int\
+    \ i = 0; i < (int)g[u].size(); i++)\r\n                {\r\n                 \
+    \   edge<S, T> &e = g[u][i];\r\n                    if (e.cap == 0)\r\n      \
+    \              {\r\n                        continue;\r\n                    }\r\
+    \n                    int v = e.to;\r\n                    T cost = e.cost + potential[u]\
+    \ - potential[v];\r\n                    if (dist[v] == -1 || dist[v] > dist[u]\
+    \ + cost)\r\n                    {\r\n                        dist[v] = dist[u]\
+    \ + cost;\r\n                        prevv[v] = u;\r\n                       \
+    \ preve[v] = i;\r\n                        que.push(P(dist[v], v));\r\n      \
+    \              }\r\n                }\r\n            }\r\n            if (dist[sink]\
+    \ == -1)\r\n            {\r\n                break;\r\n            }\r\n     \
+    \       for (int u = 0; u < n; u++)\r\n            {\r\n                potential[u]\
+    \ += (dist[u] == -1 || dist[u] > dist[sink]) ? dist[sink] : dist[u];\r\n     \
+    \       }\r\n            S flow = f;\r\n            for (int u = sink; u != source;\
+    \ u = prevv[u])\r\n            {\r\n                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap\
     \ : min(flow, g[prevv[u]][preve[u]].cap);\r\n            }\r\n            f -=\
     \ flow;\r\n            sum_of_flow += flow;\r\n            for (int u = sink;\
     \ u != source; u = prevv[u])\r\n            {\r\n                edge<S, T> &e\
@@ -103,12 +106,12 @@ data:
     \        epos.push_back(std::pair<int, int>(from, (int)g[from].size()));\r\n \
     \       g[from].push_back((edge<S, T>){from, to, cap, 0, cost, (int)g[to].size(),\
     \ m});\r\n        g[to].push_back((edge<S, T>){to, from, 0, cap, -cost, (int)g[from].size()\
-    \ - 1, m++});\r\n    }\r\n\r\n    std::pair<S, T> min_cost_flow(int source, int\
-    \ sink, S f = -1)\r\n    {\r\n        bool nonnegative = true;\r\n        for\
-    \ (int u = 0; u < n; u++)\r\n        {\r\n            for (edge<S, T> &e : g[u])\r\
-    \n            {\r\n                if (e.cap && e.cost + potential[u] - potential[e.to]\
-    \ < 0)\r\n                {\r\n                    nonnegative = false;\r\n  \
-    \              }\r\n            }\r\n        }\r\n        assert(nonnegative);\r\
+    \ - 1, m++});\r\n    }\r\n\r\n    std::pair<S, T> get_min_cost_flow(int source,\
+    \ int sink, S f = -1)\r\n    {\r\n        bool nonnegative = true;\r\n       \
+    \ for (int u = 0; u < n; u++)\r\n        {\r\n            for (edge<S, T> &e :\
+    \ g[u])\r\n            {\r\n                if (e.cap && e.cost + potential[u]\
+    \ - potential[e.to] < 0)\r\n                {\r\n                    nonnegative\
+    \ = false;\r\n                }\r\n            }\r\n        }\r\n        assert(nonnegative);\r\
     \n        S sum_of_flow = 0;\r\n        T sum_of_cost = 0;\r\n        using P\
     \ = std::pair<T, int>;\r\n        std::vector<T> dist(n);\r\n        std::vector<int>\
     \ prevv(n);\r\n        std::vector<int> preve(n);\r\n        while (f)\r\n   \
@@ -180,9 +183,10 @@ data:
   isVerificationFile: false
   path: lib/graph/flow/min_cost_flow.hpp
   requiredBy: []
-  timestamp: '2022-12-14 22:24:20+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-12-14 23:01:16+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/aoj/GRL_6_B.test.cpp
 documentation_of: lib/graph/flow/min_cost_flow.hpp
 layout: document
 redirect_from:
