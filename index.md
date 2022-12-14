@@ -63,6 +63,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
+    - icon: ':x:'
+      path: lib/math/prime_structure.hpp
+      title: lib/math/prime_structure.hpp
   - name: lib/structure/union_find
     pages:
     - icon: ':heavy_check_mark:'
@@ -76,6 +79,9 @@ data:
       title: test/library_checker/unionfind.test.cpp
   - name: test/yukicoder
     pages:
+    - icon: ':x:'
+      path: test/yukicoder/no_2081.test.cpp
+      title: test/yukicoder/no_2081.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2095.test.cpp
       title: test/yukicoder/no_2095.test.cpp
