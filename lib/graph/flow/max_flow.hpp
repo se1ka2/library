@@ -15,13 +15,7 @@ struct edge
 template <typename T = int>
 struct mf_graph
 {
-    int n;
-    int m;
-    std::vector<std::vector<edge<T>>> g;
-    std::vector<int> d;
-    std::vector<int> nx;
-    std::vector<std::pair<int, int>> epos;
-
+public:
     mf_graph() {}
 
     mf_graph(int n) : n(n), m(0)
@@ -39,6 +33,58 @@ struct mf_graph
         g[from].push_back((edge<T>){from, to, cap, 0, (int)g[to].size(), m++});
         g[to].push_back((edge<T>){to, from, 0, cap, (int)g[from].size() - 1, -1});
     }
+
+    T get_maximum_flow(int source, int sink)
+    {
+        T res = 0;
+        while (true)
+        {
+            bfs(sink);
+            if (d[source] == -1)
+            {
+                return res;
+            }
+            fill(nx.begin(), nx.end(), 0);
+            for (T f; (f = dfs(source, sink, -1)) > 0;)
+            {
+                res += f;
+            }
+        }
+    }
+
+    edge<T> &get_edge(int id)
+    {
+        assert(0 <= id && id < m);
+        return g[epos[id].first][epos[id].second];
+    }
+
+    int size()
+    {
+        return n;
+    }
+
+    int edge_size()
+    {
+        return m;
+    }
+
+    inline const std::vector<edge<T>> &operator[](const int &u) const
+    {
+        return g[u];
+    }
+
+    inline std::vector<edge<T>> &operator[](const int &u)
+    {
+        return g[u];
+    }
+
+private:
+    int n;
+    int m;
+    std::vector<std::vector<edge<T>>> g;
+    std::vector<int> d;
+    std::vector<int> nx;
+    std::vector<std::pair<int, int>> epos;
 
     T dfs(int u, int s, T f)
     {
@@ -88,44 +134,5 @@ struct mf_graph
                 }
             }
         }
-    }
-
-    T get_maximum_flow(int source, int sink)
-    {
-        T res = 0;
-        while (true)
-        {
-            bfs(sink);
-            if (d[source] == -1)
-            {
-                return res;
-            }
-            fill(nx.begin(), nx.end(), 0);
-            for (T f; (f = dfs(source, sink, -1)) > 0;)
-            {
-                res += f;
-            }
-        }
-    }
-
-    edge<T> &get_edge(int id)
-    {
-        assert(0 <= id && id < m);
-        return g[epos[id].first][epos[id].second];
-    }
-
-    int size()
-    {
-        return n;
-    }
-
-    int edge_size()
-    {
-        return m;
-    }
-
-    inline const std::vector<edge<T>> &operator[](const int &u) const
-    {
-        return g[u];
     }
 };

@@ -1,9 +1,6 @@
 struct prime_sturcture
 {
-    int max_n;
-    std::vector<bool> p;
-    std::vector<int> prime_list;
-
+public:
     prime_sturcture(int max_n) : max_n(max_n), p(max_n + 1, true)
     {
         p[0] = p[1] = false;
@@ -46,4 +43,9 @@ struct prime_sturcture
     {
         return prime_list.end();
     }
+
+private:
+    int max_n;
+    std::vector<bool> p;
+    std::vector<int> prime_list;
 };

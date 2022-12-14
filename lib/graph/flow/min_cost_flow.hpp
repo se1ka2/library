@@ -16,11 +16,7 @@ struct edge
 template <typename S = int, typename T = int>
 struct mcf_graph
 {
-    int n, m;
-    std::vector<std::vector<edge<S, T>>> g;
-    std::vector<T> potential;
-    std::vector<std::pair<int, int>> epos;
-
+public:
     mcf_graph() {}
 
     mcf_graph(int n) : n(n)
@@ -36,78 +32,6 @@ struct mcf_graph
         epos.push_back(std::pair<int, int>(from, (int)g[from].size()));
         g[from].push_back((edge<S, T>){from, to, cap, 0, cost, (int)g[to].size(), m});
         g[to].push_back((edge<S, T>){to, from, 0, cap, -cost, (int)g[from].size() - 1, m++});
-    }
-
-    void init_potential(bool is_dag)
-    {
-        if (is_dag)
-        {
-            std::vector<int> d(n);
-            for (int u = 0; u < n; u++)
-            {
-                for (edge<S, T> &e : g[u])
-                {
-                    if (e.cap)
-                    {
-                        d[e.to]++;
-                    }
-                }
-            }
-            std::queue<int> que;
-            for (int u = 0; u < n; u++)
-            {
-                if (!d[u])
-                {
-                    que.push(u);
-                }
-            }
-            while (que.size())
-            {
-                int u = que.front();
-                que.pop();
-                for (edge<S, T> &e : g[u])
-                {
-                    if (!e.cap)
-                    {
-                        continue;
-                    }
-                    int v = e.to;
-                    potential[v] = min(potential[v], potential[u] + e.cost);
-                    d[v]--;
-                    if (!d[v])
-                    {
-                        que.push(v);
-                    }
-                }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < n; i++)
-            {
-                bool flag = false;
-                for (int u = 0; u < n; u++)
-                {
-                    for (edge<S, T> &e : g[u])
-                    {
-                        if (e.cap == 0)
-                        {
-                            continue;
-                        }
-                        int v = e.to;
-                        if (potential[v] > potential[u] + e.cost)
-                        {
-                            potential[v] = potential[u] + e.cost;
-                            flag = true;
-                        }
-                    }
-                }
-                if (!flag)
-                {
-                    break;
-                }
-            }
-        }
     }
 
     std::pair<S, T> min_cost_flow(int source, int sink, S f = -1)
@@ -208,5 +132,88 @@ struct mcf_graph
     inline const std::vector<edge<S, T>> &operator[](const int &u) const
     {
         return g[u];
+    }
+
+    inline std::vector<edge<S, T>> &operator[](const int &u)
+    {
+        return g[u];
+    }
+
+private:
+    int n, m;
+    std::vector<std::vector<edge<S, T>>> g;
+    std::vector<T> potential;
+    std::vector<std::pair<int, int>> epos;
+
+    void init_potential(bool is_dag)
+    {
+        if (is_dag)
+        {
+            std::vector<int> d(n);
+            for (int u = 0; u < n; u++)
+            {
+                for (edge<S, T> &e : g[u])
+                {
+                    if (e.cap)
+                    {
+                        d[e.to]++;
+                    }
+                }
+            }
+            std::queue<int> que;
+            for (int u = 0; u < n; u++)
+            {
+                if (!d[u])
+                {
+                    que.push(u);
+                }
+            }
+            while (que.size())
+            {
+                int u = que.front();
+                que.pop();
+                for (edge<S, T> &e : g[u])
+                {
+                    if (!e.cap)
+                    {
+                        continue;
+                    }
+                    int v = e.to;
+                    potential[v] = min(potential[v], potential[u] + e.cost);
+                    d[v]--;
+                    if (!d[v])
+                    {
+                        que.push(v);
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < n; i++)
+            {
+                bool flag = false;
+                for (int u = 0; u < n; u++)
+                {
+                    for (edge<S, T> &e : g[u])
+                    {
+                        if (e.cap == 0)
+                        {
+                            continue;
+                        }
+                        int v = e.to;
+                        if (potential[v] > potential[u] + e.cost)
+                        {
+                            potential[v] = potential[u] + e.cost;
+                            flag = true;
+                        }
+                    }
+                }
+                if (!flag)
+                {
+                    break;
+                }
+            }
+        }
     }
 };

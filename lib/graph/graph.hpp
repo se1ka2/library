@@ -14,9 +14,7 @@ struct edge
 template <typename T = int>
 struct graph
 {
-    int n, m;
-    std::vector<std::vector<edge<T>>> g;
-
+public:
     graph() {}
 
     graph(int n) : n(n), m(0)
@@ -58,4 +56,8 @@ struct graph
     {
         return g[u];
     }
+
+private:
+    int n, m;
+    std::vector<std::vector<edge<T>>> g;
 };

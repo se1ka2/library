@@ -1,9 +1,6 @@
 struct bipartite_matching
 {
-    int p, q;
-    mf_graph<int> g;
-    std::vector<int> ml, mr;
-
+public:
     bipartite_matching() {}
 
     bipartite_matching(int p, int q) : p(p), q(q), g(p + q + 2), ml(p, -1), mr(q, -1)
@@ -63,4 +60,9 @@ struct bipartite_matching
         }
         return left ? g.get_edge(ml[u]).to - p : g.get_edge(mr[u]).from;
     }
+
+private:
+    int p, q;
+    mf_graph<int> g;
+    std::vector<int> ml, mr;
 };

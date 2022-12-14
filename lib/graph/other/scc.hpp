@@ -1,10 +1,7 @@
 template <typename T = int>
 struct scc_graph
 {
-    int n, m;
-    std::vector<std::vector<edge<T>>> g, rg;
-    std::vector<int> cmp;
-
+public:
     scc_graph() {}
 
     scc_graph(int n) : n(n)
@@ -20,32 +17,6 @@ struct scc_graph
         assert(0 <= to && to < n);
         g[from].push_back((edge<T>){from, to, cost, m});
         rg[to].push_back((edge<T>){to, from, cost, m++});
-    }
-
-    void dfs(int u, vector<bool> &used, vector<int> &vs)
-    {
-        used[u] = true;
-        for (int v : g[u])
-        {
-            if (!used[v])
-            {
-                dfs(v, used, vs);
-            }
-        }
-        vs.push_back(u);
-    }
-
-    void rdfs(int u, int k, vector<bool> &used)
-    {
-        used[u] = true;
-        cmp[u] = k;
-        for (int v : rg[u])
-        {
-            if (!used[v])
-            {
-                rdfs(v, k, used);
-            }
-        }
     }
 
     int build()
@@ -116,5 +87,36 @@ struct scc_graph
     inline const std::vector<edge<T>> &operator[](const int &u) const
     {
         return g[u];
+    }
+
+private:
+    int n, m;
+    std::vector<std::vector<edge<T>>> g, rg;
+    std::vector<int> cmp;
+
+    void dfs(int u, vector<bool> &used, vector<int> &vs)
+    {
+        used[u] = true;
+        for (int v : g[u])
+        {
+            if (!used[v])
+            {
+                dfs(v, used, vs);
+            }
+        }
+        vs.push_back(u);
+    }
+
+    void rdfs(int u, int k, vector<bool> &used)
+    {
+        used[u] = true;
+        cmp[u] = k;
+        for (int v : rg[u])
+        {
+            if (!used[v])
+            {
+                rdfs(v, k, used);
+            }
+        }
     }
 };

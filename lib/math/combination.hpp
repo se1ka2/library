@@ -15,10 +15,7 @@ mint modpow(mint x, long long n)
 
 struct combination
 {
-    int maxn;
-    std::vector<mint> fact;
-    std::vector<mint> ifact;
-
+public:
     combination(int maxn) : maxn(maxn)
     {
         fact.resize(maxn + 1);
@@ -44,4 +41,9 @@ struct combination
         }
         return fact[n] * ifact[k] * ifact[n - k];
     }
+
+private:
+    int maxn;
+    std::vector<mint> fact;
+    std::vector<mint> ifact;
 };

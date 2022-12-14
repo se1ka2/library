@@ -1,9 +1,7 @@
 template <typename T>
 struct Matrix
 {
-    int n, m;
-    std::vector<std::vector<T>> a;
-
+public:
     Matrix() {}
 
     Matrix(int n, int m) : n(n), m(m), a(n, std::vector<T>(m)) {}
@@ -108,4 +106,8 @@ struct Matrix
     {
         return a[i];
     }
+
+private:
+    int n, m;
+    std::vector<std::vector<T>> a;
 };

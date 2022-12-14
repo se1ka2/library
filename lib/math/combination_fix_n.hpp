@@ -15,12 +15,7 @@ mint modpow(mint x, long long n)
 
 struct combination_fix_n
 {
-    long long n;
-    int maxk;
-    std::vector<mint> nP;
-    std::vector<mint> fact;
-    std::vector<mint> ifact;
-
+public:
     combination_fix_n(long long n, int maxk) : n(n), maxk(maxk)
     {
         nP.resize(maxk + 1);
@@ -49,4 +44,11 @@ struct combination_fix_n
         }
         return nP[k] * ifact[k];
     }
+
+private:
+    long long n;
+    int maxk;
+    std::vector<mint> nP;
+    std::vector<mint> fact;
+    std::vector<mint> ifact;
 };
