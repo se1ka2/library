@@ -34,7 +34,7 @@ public:
         g[to].push_back((edge<S, T>){to, from, 0, cap, -cost, (int)g[from].size() - 1, m++});
     }
 
-    std::pair<S, T> min_cost_flow(int source, int sink, S f = -1)
+    std::pair<S, T> get_min_cost_flow(int source, int sink, S f = -1)
     {
         bool nonnegative = true;
         for (int u = 0; u < n; u++)
