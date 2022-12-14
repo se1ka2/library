@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: lib/graph/flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/flow/max_flow.hpp
       title: lib/graph/flow/max_flow.hpp
     - icon: ':warning:'
@@ -63,7 +63,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/modint.hpp
       title: lib/math/modint.hpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: lib/math/prime_structure.hpp
       title: lib/math/prime_structure.hpp
   - name: lib/structure/union_find
@@ -72,6 +72,11 @@ data:
       path: lib/structure/union_find/union_find.hpp
       title: lib/structure/union_find/union_find.hpp
   verificationCategories:
+  - name: test/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_6_A.test.cpp
+      title: test/aoj/GRL_6_A.test.cpp
   - name: test/library_checker
     pages:
     - icon: ':heavy_check_mark:'
@@ -79,9 +84,6 @@ data:
       title: test/library_checker/unionfind.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
-      path: test/yukicoder/no_2081.test.cpp
-      title: test/yukicoder/no_2081.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2095.test.cpp
       title: test/yukicoder/no_2095.test.cpp
