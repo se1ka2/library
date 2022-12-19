@@ -5,6 +5,8 @@ public:
     std::vector<int> articulation;
     std::vector<edge<T>> bridge;
 
+    low_link() {}
+
     low_link(G &g) : n(g.size()), g(g), ord(g.size(), -1), low(g.size(), -1)
     {
         int k = 0;

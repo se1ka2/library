@@ -1,113 +1,104 @@
-template <typename T = int>
-struct scc_graph
+template <typename G, typename T = int>
+struct scc_structure
 {
 public:
-    scc_graph() {}
+    std::vector<std::vector<int>> group;
 
-    scc_graph(int n) : n(n)
-    {
-        g.resize(n);
-        rg.resize(n);
-        cmp.resize(n);
-    }
+    scc_structure() {}
 
-    void add_directed_edge(int from, int to, T cost = 1)
+    scc_structure(G &g) : n(g.size()), k(0), g(g), rg(g.size()), cmp(n), used(n)
     {
-        assert(0 <= from && from < n);
-        assert(0 <= to && to < n);
-        g[from].push_back((edge<T>){from, to, cost, m});
-        rg[to].push_back((edge<T>){to, from, cost, m++});
-    }
-
-    int build()
-    {
-        std::vector<bool> used(n, false);
-        std::vector<int> vs;
-        for (int i = 0; i < n; i++)
-        {
-            if (!used[i])
-            {
-                dfs(i, used, vs);
-            }
-        }
-        fill(used.begin(), used.end(), false);
-        int k = 0;
-        for (int i = n - 1; i >= 0; i--)
-        {
-            if (!used[vs[i]])
-            {
-                rdfs(vs[i], k, used);
-                k++;
-            }
-        }
-        return k;
-    }
-
-    graph<int> get_dag()
-    {
-        int k = build();
-        std::vector<std::vector<int>> p(k);
         for (int u = 0; u < n; u++)
         {
             for (int v : g[u])
             {
-                p[cmp[u]].push_back(cmp[v]);
+                rg[v].push_back(u);
             }
         }
-        std::vector<int> b(k);
+        for (int u = 0; u < n; u++)
+        {
+            if (!used[u])
+            {
+                dfs(u);
+            }
+        }
+        fill(used.begin(), used.end(), false);
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (!used[vs[i]])
+            {
+                rdfs(vs[i], k++);
+            }
+        }
+        group.resize(k);
+        for (int u = 0; u < n; u++)
+        {
+            group[cmp[u]].push_back(u);
+        }
+    }
+
+    graph<int> get_dag()
+    {
+        std::vector<bool> b(k);
         graph<int> dag(k);
         for (int x = 0; x < k; x++)
         {
-            for (int y : p[x])
+            for (int u : group[x])
             {
-                if (!b[y])
+                for (int v : g[u])
                 {
-                    dag.add_directed_edge(x, y);
-                    b[y] = 1;
+                    int y = cmp[v];
+                    if (!b[y])
+                    {
+                        dag.add_directed_edge(x, y);
+                        b[y] = true;
+                    }
                 }
             }
-            for (int y : p[x])
+            for (int u : group[x])
             {
-                b[y] = 0;
+                for (int v : g[u])
+                {
+                    b[cmp[v]] = false;
+                }
             }
         }
         return dag;
     }
 
-    int size()
+    int number_of_component()
     {
-        return n;
+        return k;
     }
 
-    int edge_size()
+    const int operator[](const int &u) const
     {
-        return m;
-    }
-
-    inline const std::vector<edge<T>> &operator[](const int &u) const
-    {
-        return g[u];
+        return cmp[u];
     }
 
 private:
-    int n, m;
-    std::vector<std::vector<edge<T>>> g, rg;
+    int n;
+    int k;
+    const G &g;
+    std::vector<std::vector<int>> rg;
     std::vector<int> cmp;
+    std::vector<bool> used;
+    std::vector<int> vs;
 
-    void dfs(int u, vector<bool> &used, vector<int> &vs)
+    void dfs(int u)
     {
         used[u] = true;
         for (int v : g[u])
         {
             if (!used[v])
             {
-                dfs(v, used, vs);
+                dfs(v);
             }
         }
         vs.push_back(u);
     }
 
-    void rdfs(int u, int k, vector<bool> &used)
+    void rdfs(int u, int k)
     {
         used[u] = true;
         cmp[u] = k;
@@ -115,7 +106,7 @@ private:
         {
             if (!used[v])
             {
-                rdfs(v, k, used);
+                rdfs(v, k);
             }
         }
     }
