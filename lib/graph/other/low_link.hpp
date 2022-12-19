@@ -47,8 +47,9 @@ private:
                 {
                     bridge.push_back(e);
                 }
+                low[u] = std::min(low[u], low[v]);
             }
-            low[u] = std::min(low[u], low[v]);
+            low[u] = std::min(low[u], ord[v]);
         }
         is_artification |= (last_edge_id == -1 && c >= 2);
         if (is_artification)
