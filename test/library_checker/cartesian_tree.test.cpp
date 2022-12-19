@@ -17,10 +17,10 @@ int main()
     {
         cin >> a[i];
     }
-    vector<int> p = cartesian_tree(a);
+    cartesian_tree ct(a);
     for (int i = 0; i < n; i++)
     {
-        cout << p[i] << " ";
+        cout << ct.par[i] << " ";
     }
     cout << endl;
 }

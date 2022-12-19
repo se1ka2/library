@@ -1,28 +1,76 @@
 template <typename T>
-std::vector<int> cartesian_tree(std::vector<T> &a)
+struct cartesian_tree
 {
-    int n = a.size();
-    std::stack<T> st;
-    std::vector<int> par(n);
-    for (int i = 0; i < n; i++)
+public:
+    std::vector<int> par;
+    std::vector<int> lc, rc;
+    std::vector<int> lp, rp;
+
+    cartesian_tree() {}
+
+    cartesian_tree(std::vector<T> &a) : n(a.size()), par(a.size()), lc(a.size(), -1), rc(a.size(), -1), lp(a.size(), -1), rp(a.size(), a.size())
     {
-        par[i] = i;
-        int last = -1;
-        while (st.size())
+        std::stack<int> st;
+        for (int i = 0; i < n; i++)
         {
-            if (a[i] >= a[st.top()])
+            par[i] = i;
+            int last = -1;
+            while (st.size())
             {
-                par[i] = st.top();
-                break;
+                if (a[i] >= a[st.top()])
+                {
+                    par[i] = st.top();
+                    break;
+                }
+                last = st.top();
+                st.pop();
             }
-            last = st.top();
-            st.pop();
+            if (last >= 0)
+            {
+                par[last] = i;
+            }
+            st.push(i);
         }
-        if (last >= 0)
+        for (int i = 0; i < n; i++)
         {
-            par[last] = i;
+            if (par[i] > i)
+            {
+                lc[par[i]] = i;
+            }
+            else if (par[i] < i)
+            {
+                rc[par[i]] = i;
+            }
+            else
+            {
+                r = i;
+            }
         }
-        st.push(i);
+        dfs(r);
     }
-    return par;
-}
+
+    int root()
+    {
+        return r;
+    }
+
+private:
+    int n;
+    int r;
+
+    void dfs(int i)
+    {
+        if (lc[i] >= 0)
+        {
+            lp[lc[i]] = lp[i];
+            rp[lc[i]] = i;
+            dfs(lc[i]);
+        }
+        if (rc[i] >= 0)
+        {
+            lp[rc[i]] = i;
+            rp[rc[i]] = rp[i];
+            dfs(rc[i]);
+        }
+    }
+};
