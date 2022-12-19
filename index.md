@@ -27,10 +27,10 @@ data:
     - icon: ':warning:'
       path: lib/graph/other/eularian_trail.hpp
       title: lib/graph/other/eularian_trail.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/other/low_link.hpp
       title: lib/graph/other/low_link.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/other/scc.hpp
       title: lib/graph/other/scc.hpp
   - name: lib/graph/shortest_path
@@ -66,6 +66,11 @@ data:
     - icon: ':warning:'
       path: lib/math/prime_structure.hpp
       title: lib/math/prime_structure.hpp
+  - name: lib/structure/other
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/structure/other/cartesian_tree.hpp
+      title: lib/structure/other/cartesian_tree.hpp
   - name: lib/structure/union_find
     pages:
     - icon: ':heavy_check_mark:'
@@ -75,6 +80,12 @@ data:
   - name: test/aoj
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_3_A.test.cpp
+      title: test/aoj/GRL_3_A.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_3_B.test.cpp
+      title: test/aoj/GRL_3_B.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.test.cpp
       title: test/aoj/GRL_6_A.test.cpp
     - icon: ':heavy_check_mark:'
@@ -82,6 +93,12 @@ data:
       title: test/aoj/GRL_6_B.test.cpp
   - name: test/library_checker
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/cartesian_tree.test.cpp
+      title: test/library_checker/cartesian_tree.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/scc.test.cpp
+      title: test/library_checker/scc.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/unionfind.test.cpp
       title: test/library_checker/unionfind.test.cpp

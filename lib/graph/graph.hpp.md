@@ -4,6 +4,15 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL_3_A.test.cpp
+    title: test/aoj/GRL_3_A.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/GRL_3_B.test.cpp
+    title: test/aoj/GRL_3_B.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/scc.test.cpp
+    title: test/library_checker/scc.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2095.test.cpp
     title: test/yukicoder/no_2095.test.cpp
   _isVerificationFailed: false
@@ -52,7 +61,10 @@ data:
   timestamp: '2022-12-14 22:24:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/GRL_3_B.test.cpp
+  - test/aoj/GRL_3_A.test.cpp
   - test/yukicoder/no_2095.test.cpp
+  - test/library_checker/scc.test.cpp
 documentation_of: lib/graph/graph.hpp
 layout: document
 redirect_from:
