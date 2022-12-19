@@ -1,3 +1,5 @@
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A"
+
 #include <algorithm>
 #include <iostream>
 #include <cassert>
