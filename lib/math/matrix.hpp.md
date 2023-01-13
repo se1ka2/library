@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/no_2156.test.cpp
     title: test/yukicoder/no_2156.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/math/matrix.hpp\"\ntemplate <typename T>\nstruct Matrix\n\
@@ -76,7 +76,7 @@ data:
   path: lib/math/matrix.hpp
   requiredBy: []
   timestamp: '2022-12-14 22:24:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/no_2156.test.cpp
 documentation_of: lib/math/matrix.hpp

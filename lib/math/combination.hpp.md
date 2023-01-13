@@ -11,37 +11,32 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"lib/math/combination.hpp\"\nmint modpow(mint x, long long\
-    \ n)\n{\n    mint res = 1, r = x;\n    while (n)\n    {\n        if (n & 1)\n\
-    \        {\n            res *= r;\n        }\n        r *= r;\n        n >>= 1;\n\
-    \    }\n    return res;\n}\n\nstruct combination\n{\npublic:\n    combination(int\
+  bundledCode: "#line 1 \"lib/math/combination.hpp\"\ntemplate <typename M>\nstruct\
+    \ combination\n{\npublic:\n    combination(int maxn) : maxn(maxn)\n    {\n   \
+    \     fact.resize(maxn + 1);\n        ifact.resize(maxn + 1);\n        fact[0]\
+    \ = 1;\n        for (int i = 1; i <= maxn; i++)\n        {\n            fact[i]\
+    \ = fact[i - 1] * i;\n        }\n        ifact[maxn] = fact[maxn].inv();\n   \
+    \     for (int i = maxn - 1; i >= 0; i--)\n        {\n            ifact[i] = ifact[i\
+    \ + 1] * (i + 1);\n        }\n    }\n\n    M operator()(int n, int k)\n    {\n\
+    \        assert(n <= maxn);\n        if (k > n || k < 0)\n        {\n        \
+    \    return 0;\n        }\n        return fact[n] * ifact[k] * ifact[n - k];\n\
+    \    }\n\nprivate:\n    int maxn;\n    std::vector<M> fact;\n    std::vector<M>\
+    \ ifact;\n};\n"
+  code: "template <typename M>\nstruct combination\n{\npublic:\n    combination(int\
     \ maxn) : maxn(maxn)\n    {\n        fact.resize(maxn + 1);\n        ifact.resize(maxn\
     \ + 1);\n        fact[0] = 1;\n        for (int i = 1; i <= maxn; i++)\n     \
     \   {\n            fact[i] = fact[i - 1] * i;\n        }\n        ifact[maxn]\
-    \ = modpow(fact[maxn], MOD - 2);\n        for (int i = maxn - 1; i >= 0; i--)\n\
-    \        {\n            ifact[i] = ifact[i + 1] * (i + 1);\n        }\n    }\n\
-    \n    mint operator()(int n, int k)\n    {\n        assert(n <= maxn);\n     \
-    \   if (k > n || k < 0)\n        {\n            return 0;\n        }\n       \
-    \ return fact[n] * ifact[k] * ifact[n - k];\n    }\n\nprivate:\n    int maxn;\n\
-    \    std::vector<mint> fact;\n    std::vector<mint> ifact;\n};\n"
-  code: "mint modpow(mint x, long long n)\n{\n    mint res = 1, r = x;\n    while\
-    \ (n)\n    {\n        if (n & 1)\n        {\n            res *= r;\n        }\n\
-    \        r *= r;\n        n >>= 1;\n    }\n    return res;\n}\n\nstruct combination\n\
-    {\npublic:\n    combination(int maxn) : maxn(maxn)\n    {\n        fact.resize(maxn\
-    \ + 1);\n        ifact.resize(maxn + 1);\n        fact[0] = 1;\n        for (int\
-    \ i = 1; i <= maxn; i++)\n        {\n            fact[i] = fact[i - 1] * i;\n\
-    \        }\n        ifact[maxn] = modpow(fact[maxn], MOD - 2);\n        for (int\
-    \ i = maxn - 1; i >= 0; i--)\n        {\n            ifact[i] = ifact[i + 1] *\
-    \ (i + 1);\n        }\n    }\n\n    mint operator()(int n, int k)\n    {\n   \
-    \     assert(n <= maxn);\n        if (k > n || k < 0)\n        {\n           \
-    \ return 0;\n        }\n        return fact[n] * ifact[k] * ifact[n - k];\n  \
-    \  }\n\nprivate:\n    int maxn;\n    std::vector<mint> fact;\n    std::vector<mint>\
-    \ ifact;\n};\n"
+    \ = fact[maxn].inv();\n        for (int i = maxn - 1; i >= 0; i--)\n        {\n\
+    \            ifact[i] = ifact[i + 1] * (i + 1);\n        }\n    }\n\n    M operator()(int\
+    \ n, int k)\n    {\n        assert(n <= maxn);\n        if (k > n || k < 0)\n\
+    \        {\n            return 0;\n        }\n        return fact[n] * ifact[k]\
+    \ * ifact[n - k];\n    }\n\nprivate:\n    int maxn;\n    std::vector<M> fact;\n\
+    \    std::vector<M> ifact;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/combination.hpp
   requiredBy: []
-  timestamp: '2022-12-14 22:24:20+09:00'
+  timestamp: '2023-01-14 04:04:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/no_2141.test.cpp

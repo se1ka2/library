@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/graph/flow/max_flow.hpp
       title: lib/graph/flow/max_flow.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/graph/flow/min_cost_flow.hpp
       title: lib/graph/flow/min_cost_flow.hpp
   - name: lib/graph
@@ -54,18 +54,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/math/combination.hpp
       title: lib/math/combination.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/math/combination_fix_n.hpp
       title: lib/math/combination_fix_n.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/math/matrix.hpp
       title: lib/math/matrix.hpp
-    - icon: ':heavy_check_mark:'
-      path: lib/math/modint.hpp
-      title: lib/math/modint.hpp
     - icon: ':warning:'
       path: lib/math/prime_structure.hpp
       title: lib/math/prime_structure.hpp
+    - icon: ':question:'
+      path: lib/math/static_modint.hpp
+      title: lib/math/static_modint.hpp
   - name: lib/structure/other
     pages:
     - icon: ':heavy_check_mark:'
@@ -88,7 +88,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.test.cpp
       title: test/aoj/GRL_6_A.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/aoj/GRL_6_B.test.cpp
       title: test/aoj/GRL_6_B.test.cpp
   - name: test/library_checker
@@ -110,13 +110,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2105.test.cpp
       title: test/yukicoder/no_2105.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/no_2130.test.cpp
       title: test/yukicoder/no_2130.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/no_2141.test.cpp
       title: test/yukicoder/no_2141.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/no_2156.test.cpp
       title: test/yukicoder/no_2156.test.cpp
 layout: toppage

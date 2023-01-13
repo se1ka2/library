@@ -1,22 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/graph/flow/min_cost_flow.hpp
     title: lib/graph/flow/min_cost_flow.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
   bundledCode: "#line 1 \"test/aoj/GRL_6_B.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
-    \n\n#include <iostream>\n#include <cassert>\n#include <queue>\nusing namespace\
-    \ std;\ntypedef pair<int, int> P;\n\n#line 1 \"lib/graph/flow/min_cost_flow.hpp\"\
+    \n\n#include <iostream>\n#include <cassert>\n#include <queue>\n#line 1 \"lib/graph/flow/min_cost_flow.hpp\"\
     \ntemplate <typename S = int, typename T = int>\r\nstruct edge\r\n{\r\n    int\
     \ from, to;\r\n    S cap, flow;\r\n    T cost;\r\n    int rev;\r\n    int id;\r\
     \n\r\n    operator int() const\r\n    {\r\n        return to;\r\n    }\r\n};\r\
@@ -100,27 +99,27 @@ data:
     \ = potential[u] + e.cost;\r\n                            flag = true;\r\n   \
     \                     }\r\n                    }\r\n                }\r\n    \
     \            if (!flag)\r\n                {\r\n                    break;\r\n\
-    \                }\r\n            }\r\n        }\r\n    }\r\n};\r\n#line 10 \"\
-    test/aoj/GRL_6_B.test.cpp\"\n\nint main()\n{\n    int n, m, f;\n    cin >> n >>\
-    \ m >> f;\n    mcf_graph g(n);\n    for (int i = 0; i < m; i++)\n    {\n     \
-    \   int u, v, c, d;\n        cin >> u >> v >> c >> d;\n        g.add_directed_edge(u,\
-    \ v, c, d);\n    }\n    P p = g.get_min_cost_flow(0, n - 1, f);\n    cout << (p.first\
-    \ == f ? p.second : -1) << endl;\n}\n"
-  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
-    \n\n#include <iostream>\n#include <cassert>\n#include <queue>\nusing namespace\
-    \ std;\ntypedef pair<int, int> P;\n\n#include \"../../lib/graph/flow/min_cost_flow.hpp\"\
-    \n\nint main()\n{\n    int n, m, f;\n    cin >> n >> m >> f;\n    mcf_graph g(n);\n\
+    \                }\r\n            }\r\n        }\r\n    }\r\n};\r\n#line 7 \"\
+    test/aoj/GRL_6_B.test.cpp\"\nusing namespace std;\ntypedef pair<int, int> P;\n\
+    \nint main()\n{\n    int n, m, f;\n    cin >> n >> m >> f;\n    mcf_graph g(n);\n\
     \    for (int i = 0; i < m; i++)\n    {\n        int u, v, c, d;\n        cin\
     \ >> u >> v >> c >> d;\n        g.add_directed_edge(u, v, c, d);\n    }\n    P\
     \ p = g.get_min_cost_flow(0, n - 1, f);\n    cout << (p.first == f ? p.second\
     \ : -1) << endl;\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
+    \n\n#include <iostream>\n#include <cassert>\n#include <queue>\n#include \"../../lib/graph/flow/min_cost_flow.hpp\"\
+    \nusing namespace std;\ntypedef pair<int, int> P;\n\nint main()\n{\n    int n,\
+    \ m, f;\n    cin >> n >> m >> f;\n    mcf_graph g(n);\n    for (int i = 0; i <\
+    \ m; i++)\n    {\n        int u, v, c, d;\n        cin >> u >> v >> c >> d;\n\
+    \        g.add_directed_edge(u, v, c, d);\n    }\n    P p = g.get_min_cost_flow(0,\
+    \ n - 1, f);\n    cout << (p.first == f ? p.second : -1) << endl;\n}\n"
   dependsOn:
   - lib/graph/flow/min_cost_flow.hpp
   isVerificationFile: true
   path: test/aoj/GRL_6_B.test.cpp
   requiredBy: []
-  timestamp: '2022-12-14 23:01:16+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-01-14 04:14:29+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_B.test.cpp
 layout: document
