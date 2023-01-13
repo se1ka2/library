@@ -6,33 +6,33 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2105.test.cpp
     title: test/yukicoder/no_2105.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2130.test.cpp
     title: test/yukicoder/no_2130.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2141.test.cpp
     title: test/yukicoder/no_2141.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2156.test.cpp
     title: test/yukicoder/no_2156.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/math/static_modint.hpp\"\ntemplate <int MOD>\nstruct\
     \ static_modint\n{\n    using mint = static_modint;\n\npublic:\n    int val;\n\
     \n    static_modint() : val(0) {}\n\n    static_modint(long long v)\n    {\n \
-    \       if (abs(v) >= mod())\n        {\n            v %= mod();\n        }\n\
-    \        if (v < 0)\n        {\n            v += mod();\n        }\n        val\
-    \ = v;\n    }\n\n    mint &operator++()\n    {\n        val++;\n        if (val\
-    \ == mod())\n        {\n            val = 0;\n        }\n        return *this;\n\
-    \    }\n\n    mint &operator--()\n    {\n        if (val == 0)\n        {\n  \
-    \          val = mod();\n        }\n        val--;\n        return *this;\n  \
-    \  }\n\n    mint &operator+=(const mint &x)\n    {\n        val += x.val;\n  \
-    \      if (val >= mod())\n        {\n            val -= mod();\n        }\n  \
-    \      return *this;\n    }\n\n    mint &operator-=(const mint &x)\n    {\n  \
-    \      val -= x.val;\n        if (val < 0)\n        {\n            val += mod();\n\
+    \       if (std::abs(v) >= mod())\n        {\n            v %= mod();\n      \
+    \  }\n        if (v < 0)\n        {\n            v += mod();\n        }\n    \
+    \    val = v;\n    }\n\n    mint &operator++()\n    {\n        val++;\n      \
+    \  if (val == mod())\n        {\n            val = 0;\n        }\n        return\
+    \ *this;\n    }\n\n    mint &operator--()\n    {\n        if (val == 0)\n    \
+    \    {\n            val = mod();\n        }\n        val--;\n        return *this;\n\
+    \    }\n\n    mint &operator+=(const mint &x)\n    {\n        val += x.val;\n\
+    \        if (val >= mod())\n        {\n            val -= mod();\n        }\n\
+    \        return *this;\n    }\n\n    mint &operator-=(const mint &x)\n    {\n\
+    \        val -= x.val;\n        if (val < 0)\n        {\n            val += mod();\n\
     \        }\n        return *this;\n    }\n\n    mint &operator*=(const mint &x)\n\
     \    {\n        val = (int)((long long)val * x.val % mod());\n        return *this;\n\
     \    }\n\n    mint &operator/=(const mint &x)\n    {\n        *this *= x.inv();\n\
@@ -56,20 +56,20 @@ data:
     \    static constexpr int mod()\n    {\n        return MOD;\n    }\n};\n"
   code: "template <int MOD>\nstruct static_modint\n{\n    using mint = static_modint;\n\
     \npublic:\n    int val;\n\n    static_modint() : val(0) {}\n\n    static_modint(long\
-    \ long v)\n    {\n        if (abs(v) >= mod())\n        {\n            v %= mod();\n\
-    \        }\n        if (v < 0)\n        {\n            v += mod();\n        }\n\
-    \        val = v;\n    }\n\n    mint &operator++()\n    {\n        val++;\n  \
-    \      if (val == mod())\n        {\n            val = 0;\n        }\n       \
-    \ return *this;\n    }\n\n    mint &operator--()\n    {\n        if (val == 0)\n\
-    \        {\n            val = mod();\n        }\n        val--;\n        return\
-    \ *this;\n    }\n\n    mint &operator+=(const mint &x)\n    {\n        val +=\
-    \ x.val;\n        if (val >= mod())\n        {\n            val -= mod();\n  \
-    \      }\n        return *this;\n    }\n\n    mint &operator-=(const mint &x)\n\
-    \    {\n        val -= x.val;\n        if (val < 0)\n        {\n            val\
-    \ += mod();\n        }\n        return *this;\n    }\n\n    mint &operator*=(const\
-    \ mint &x)\n    {\n        val = (int)((long long)val * x.val % mod());\n    \
-    \    return *this;\n    }\n\n    mint &operator/=(const mint &x)\n    {\n    \
-    \    *this *= x.inv();\n        return *this;\n    }\n\n    mint operator-()\n\
+    \ long v)\n    {\n        if (std::abs(v) >= mod())\n        {\n            v\
+    \ %= mod();\n        }\n        if (v < 0)\n        {\n            v += mod();\n\
+    \        }\n        val = v;\n    }\n\n    mint &operator++()\n    {\n       \
+    \ val++;\n        if (val == mod())\n        {\n            val = 0;\n       \
+    \ }\n        return *this;\n    }\n\n    mint &operator--()\n    {\n        if\
+    \ (val == 0)\n        {\n            val = mod();\n        }\n        val--;\n\
+    \        return *this;\n    }\n\n    mint &operator+=(const mint &x)\n    {\n\
+    \        val += x.val;\n        if (val >= mod())\n        {\n            val\
+    \ -= mod();\n        }\n        return *this;\n    }\n\n    mint &operator-=(const\
+    \ mint &x)\n    {\n        val -= x.val;\n        if (val < 0)\n        {\n  \
+    \          val += mod();\n        }\n        return *this;\n    }\n\n    mint\
+    \ &operator*=(const mint &x)\n    {\n        val = (int)((long long)val * x.val\
+    \ % mod());\n        return *this;\n    }\n\n    mint &operator/=(const mint &x)\n\
+    \    {\n        *this *= x.inv();\n        return *this;\n    }\n\n    mint operator-()\n\
     \    {\n        return mint() - *this;\n    }\n\n    mint pow(long long n) const\n\
     \    {\n        mint x = 1, r = *this;\n        while (n)\n        {\n       \
     \     if (n & 1)\n            {\n                x *= r;\n            }\n    \
@@ -92,8 +92,8 @@ data:
   isVerificationFile: false
   path: lib/math/static_modint.hpp
   requiredBy: []
-  timestamp: '2023-01-14 04:14:29+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-01-14 04:39:36+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/no_2156.test.cpp
   - test/yukicoder/no_2141.test.cpp

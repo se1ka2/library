@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/no_2156.test.cpp
     title: test/yukicoder/no_2156.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/math/matrix.hpp\"\ntemplate <typename T>\nstruct Matrix\n\
@@ -38,7 +38,7 @@ data:
     \ -= a);\n    }\n\n    Matrix<T> operator*(const Matrix<T> &a)\n    {\n      \
     \  return (Matrix<T>(*this) *= a);\n    }\n\n    Matrix<T> operator^(const Matrix<T>\
     \ &a)\n    {\n        return (Matrix<T>(*this) ^= a);\n    }\n\n    const std::vector<T>\
-    \ &operator[](int i) const\n    {\n        return a[i];\n    }\n\n    vector<T>\
+    \ &operator[](int i) const\n    {\n        return a[i];\n    }\n\n    std::vector<T>\
     \ &operator[](int i)\n    {\n        return a[i];\n    }\n\nprivate:\n    int\
     \ n, m;\n    std::vector<std::vector<T>> a;\n};\n"
   code: "template <typename T>\nstruct Matrix\n{\npublic:\n    Matrix() {}\n\n   \
@@ -68,15 +68,15 @@ data:
     \ -= a);\n    }\n\n    Matrix<T> operator*(const Matrix<T> &a)\n    {\n      \
     \  return (Matrix<T>(*this) *= a);\n    }\n\n    Matrix<T> operator^(const Matrix<T>\
     \ &a)\n    {\n        return (Matrix<T>(*this) ^= a);\n    }\n\n    const std::vector<T>\
-    \ &operator[](int i) const\n    {\n        return a[i];\n    }\n\n    vector<T>\
+    \ &operator[](int i) const\n    {\n        return a[i];\n    }\n\n    std::vector<T>\
     \ &operator[](int i)\n    {\n        return a[i];\n    }\n\nprivate:\n    int\
     \ n, m;\n    std::vector<std::vector<T>> a;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: lib/math/matrix.hpp
   requiredBy: []
-  timestamp: '2022-12-14 22:24:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-01-14 04:39:36+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/no_2156.test.cpp
 documentation_of: lib/math/matrix.hpp

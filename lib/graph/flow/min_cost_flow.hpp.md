@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/aoj/GRL_6_B.test.cpp
     title: test/aoj/GRL_6_B.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"lib/graph/flow/min_cost_flow.hpp\"\ntemplate <typename S\
@@ -53,44 +53,45 @@ data:
     \ += (dist[u] == -1 || dist[u] > dist[sink]) ? dist[sink] : dist[u];\r\n     \
     \       }\r\n            S flow = f;\r\n            for (int u = sink; u != source;\
     \ u = prevv[u])\r\n            {\r\n                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap\
-    \ : min(flow, g[prevv[u]][preve[u]].cap);\r\n            }\r\n            f -=\
-    \ flow;\r\n            sum_of_flow += flow;\r\n            for (int u = sink;\
-    \ u != source; u = prevv[u])\r\n            {\r\n                edge<S, T> &e\
-    \ = g[prevv[u]][preve[u]];\r\n                e.cap -= flow;\r\n             \
-    \   e.flow += flow;\r\n                g[u][e.rev].cap += flow;\r\n          \
-    \      g[u][e.rev].flow -= flow;\r\n                sum_of_cost += e.cost * flow;\r\
-    \n            }\r\n        }\r\n        return std::pair<S, T>(sum_of_flow, sum_of_cost);\r\
-    \n    }\r\n\r\n    edge<S, T> &get_edge(int id)\r\n    {\r\n        assert(id\
-    \ < m);\r\n        return g[epos[id].first][epos[id].second];\r\n    }\r\n\r\n\
-    \    int size()\r\n    {\r\n        return n;\r\n    }\r\n\r\n    inline const\
-    \ std::vector<edge<S, T>> &operator[](const int &u) const\r\n    {\r\n       \
-    \ return g[u];\r\n    }\r\n\r\n    inline std::vector<edge<S, T>> &operator[](const\
-    \ int &u)\r\n    {\r\n        return g[u];\r\n    }\r\n\r\nprivate:\r\n    int\
-    \ n, m;\r\n    std::vector<std::vector<edge<S, T>>> g;\r\n    std::vector<T> potential;\r\
-    \n    std::vector<std::pair<int, int>> epos;\r\n\r\n    void init_potential(bool\
-    \ is_dag)\r\n    {\r\n        if (is_dag)\r\n        {\r\n            std::vector<int>\
-    \ d(n);\r\n            for (int u = 0; u < n; u++)\r\n            {\r\n      \
-    \          for (edge<S, T> &e : g[u])\r\n                {\r\n               \
-    \     if (e.cap)\r\n                    {\r\n                        d[e.to]++;\r\
-    \n                    }\r\n                }\r\n            }\r\n            std::queue<int>\
-    \ que;\r\n            for (int u = 0; u < n; u++)\r\n            {\r\n       \
-    \         if (!d[u])\r\n                {\r\n                    que.push(u);\r\
-    \n                }\r\n            }\r\n            while (que.size())\r\n   \
-    \         {\r\n                int u = que.front();\r\n                que.pop();\r\
-    \n                for (edge<S, T> &e : g[u])\r\n                {\r\n        \
-    \            if (!e.cap)\r\n                    {\r\n                        continue;\r\
-    \n                    }\r\n                    int v = e.to;\r\n             \
-    \       potential[v] = min(potential[v], potential[u] + e.cost);\r\n         \
-    \           d[v]--;\r\n                    if (!d[v])\r\n                    {\r\
-    \n                        que.push(v);\r\n                    }\r\n          \
-    \      }\r\n            }\r\n        }\r\n        else\r\n        {\r\n      \
-    \      for (int i = 0; i < n; i++)\r\n            {\r\n                bool flag\
-    \ = false;\r\n                for (int u = 0; u < n; u++)\r\n                {\r\
-    \n                    for (edge<S, T> &e : g[u])\r\n                    {\r\n\
-    \                        if (e.cap == 0)\r\n                        {\r\n    \
-    \                        continue;\r\n                        }\r\n          \
-    \              int v = e.to;\r\n                        if (potential[v] > potential[u]\
-    \ + e.cost)\r\n                        {\r\n                            potential[v]\
+    \ : std::min(flow, g[prevv[u]][preve[u]].cap);\r\n            }\r\n          \
+    \  f -= flow;\r\n            sum_of_flow += flow;\r\n            for (int u =\
+    \ sink; u != source; u = prevv[u])\r\n            {\r\n                edge<S,\
+    \ T> &e = g[prevv[u]][preve[u]];\r\n                e.cap -= flow;\r\n       \
+    \         e.flow += flow;\r\n                g[u][e.rev].cap += flow;\r\n    \
+    \            g[u][e.rev].flow -= flow;\r\n                sum_of_cost += e.cost\
+    \ * flow;\r\n            }\r\n        }\r\n        return std::pair<S, T>(sum_of_flow,\
+    \ sum_of_cost);\r\n    }\r\n\r\n    edge<S, T> &get_edge(int id)\r\n    {\r\n\
+    \        assert(id < m);\r\n        return g[epos[id].first][epos[id].second];\r\
+    \n    }\r\n\r\n    int size()\r\n    {\r\n        return n;\r\n    }\r\n\r\n \
+    \   inline const std::vector<edge<S, T>> &operator[](const int &u) const\r\n \
+    \   {\r\n        return g[u];\r\n    }\r\n\r\n    inline std::vector<edge<S, T>>\
+    \ &operator[](const int &u)\r\n    {\r\n        return g[u];\r\n    }\r\n\r\n\
+    private:\r\n    int n, m;\r\n    std::vector<std::vector<edge<S, T>>> g;\r\n \
+    \   std::vector<T> potential;\r\n    std::vector<std::pair<int, int>> epos;\r\n\
+    \r\n    void init_potential(bool is_dag)\r\n    {\r\n        if (is_dag)\r\n \
+    \       {\r\n            std::vector<int> d(n);\r\n            for (int u = 0;\
+    \ u < n; u++)\r\n            {\r\n                for (edge<S, T> &e : g[u])\r\
+    \n                {\r\n                    if (e.cap)\r\n                    {\r\
+    \n                        d[e.to]++;\r\n                    }\r\n            \
+    \    }\r\n            }\r\n            std::queue<int> que;\r\n            for\
+    \ (int u = 0; u < n; u++)\r\n            {\r\n                if (!d[u])\r\n \
+    \               {\r\n                    que.push(u);\r\n                }\r\n\
+    \            }\r\n            while (que.size())\r\n            {\r\n        \
+    \        int u = que.front();\r\n                que.pop();\r\n              \
+    \  for (edge<S, T> &e : g[u])\r\n                {\r\n                    if (!e.cap)\r\
+    \n                    {\r\n                        continue;\r\n             \
+    \       }\r\n                    int v = e.to;\r\n                    potential[v]\
+    \ = std::min(potential[v], potential[u] + e.cost);\r\n                    d[v]--;\r\
+    \n                    if (!d[v])\r\n                    {\r\n                \
+    \        que.push(v);\r\n                    }\r\n                }\r\n      \
+    \      }\r\n        }\r\n        else\r\n        {\r\n            for (int i =\
+    \ 0; i < n; i++)\r\n            {\r\n                bool flag = false;\r\n  \
+    \              for (int u = 0; u < n; u++)\r\n                {\r\n          \
+    \          for (edge<S, T> &e : g[u])\r\n                    {\r\n           \
+    \             if (e.cap == 0)\r\n                        {\r\n               \
+    \             continue;\r\n                        }\r\n                     \
+    \   int v = e.to;\r\n                        if (potential[v] > potential[u] +\
+    \ e.cost)\r\n                        {\r\n                            potential[v]\
     \ = potential[u] + e.cost;\r\n                            flag = true;\r\n   \
     \                     }\r\n                    }\r\n                }\r\n    \
     \            if (!flag)\r\n                {\r\n                    break;\r\n\
@@ -137,44 +138,45 @@ data:
     \ == -1 || dist[u] > dist[sink]) ? dist[sink] : dist[u];\r\n            }\r\n\
     \            S flow = f;\r\n            for (int u = sink; u != source; u = prevv[u])\r\
     \n            {\r\n                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap\
-    \ : min(flow, g[prevv[u]][preve[u]].cap);\r\n            }\r\n            f -=\
-    \ flow;\r\n            sum_of_flow += flow;\r\n            for (int u = sink;\
-    \ u != source; u = prevv[u])\r\n            {\r\n                edge<S, T> &e\
-    \ = g[prevv[u]][preve[u]];\r\n                e.cap -= flow;\r\n             \
-    \   e.flow += flow;\r\n                g[u][e.rev].cap += flow;\r\n          \
-    \      g[u][e.rev].flow -= flow;\r\n                sum_of_cost += e.cost * flow;\r\
-    \n            }\r\n        }\r\n        return std::pair<S, T>(sum_of_flow, sum_of_cost);\r\
-    \n    }\r\n\r\n    edge<S, T> &get_edge(int id)\r\n    {\r\n        assert(id\
-    \ < m);\r\n        return g[epos[id].first][epos[id].second];\r\n    }\r\n\r\n\
-    \    int size()\r\n    {\r\n        return n;\r\n    }\r\n\r\n    inline const\
-    \ std::vector<edge<S, T>> &operator[](const int &u) const\r\n    {\r\n       \
-    \ return g[u];\r\n    }\r\n\r\n    inline std::vector<edge<S, T>> &operator[](const\
-    \ int &u)\r\n    {\r\n        return g[u];\r\n    }\r\n\r\nprivate:\r\n    int\
-    \ n, m;\r\n    std::vector<std::vector<edge<S, T>>> g;\r\n    std::vector<T> potential;\r\
-    \n    std::vector<std::pair<int, int>> epos;\r\n\r\n    void init_potential(bool\
-    \ is_dag)\r\n    {\r\n        if (is_dag)\r\n        {\r\n            std::vector<int>\
-    \ d(n);\r\n            for (int u = 0; u < n; u++)\r\n            {\r\n      \
-    \          for (edge<S, T> &e : g[u])\r\n                {\r\n               \
-    \     if (e.cap)\r\n                    {\r\n                        d[e.to]++;\r\
-    \n                    }\r\n                }\r\n            }\r\n            std::queue<int>\
-    \ que;\r\n            for (int u = 0; u < n; u++)\r\n            {\r\n       \
-    \         if (!d[u])\r\n                {\r\n                    que.push(u);\r\
-    \n                }\r\n            }\r\n            while (que.size())\r\n   \
-    \         {\r\n                int u = que.front();\r\n                que.pop();\r\
-    \n                for (edge<S, T> &e : g[u])\r\n                {\r\n        \
-    \            if (!e.cap)\r\n                    {\r\n                        continue;\r\
-    \n                    }\r\n                    int v = e.to;\r\n             \
-    \       potential[v] = min(potential[v], potential[u] + e.cost);\r\n         \
-    \           d[v]--;\r\n                    if (!d[v])\r\n                    {\r\
-    \n                        que.push(v);\r\n                    }\r\n          \
-    \      }\r\n            }\r\n        }\r\n        else\r\n        {\r\n      \
-    \      for (int i = 0; i < n; i++)\r\n            {\r\n                bool flag\
-    \ = false;\r\n                for (int u = 0; u < n; u++)\r\n                {\r\
-    \n                    for (edge<S, T> &e : g[u])\r\n                    {\r\n\
-    \                        if (e.cap == 0)\r\n                        {\r\n    \
-    \                        continue;\r\n                        }\r\n          \
-    \              int v = e.to;\r\n                        if (potential[v] > potential[u]\
-    \ + e.cost)\r\n                        {\r\n                            potential[v]\
+    \ : std::min(flow, g[prevv[u]][preve[u]].cap);\r\n            }\r\n          \
+    \  f -= flow;\r\n            sum_of_flow += flow;\r\n            for (int u =\
+    \ sink; u != source; u = prevv[u])\r\n            {\r\n                edge<S,\
+    \ T> &e = g[prevv[u]][preve[u]];\r\n                e.cap -= flow;\r\n       \
+    \         e.flow += flow;\r\n                g[u][e.rev].cap += flow;\r\n    \
+    \            g[u][e.rev].flow -= flow;\r\n                sum_of_cost += e.cost\
+    \ * flow;\r\n            }\r\n        }\r\n        return std::pair<S, T>(sum_of_flow,\
+    \ sum_of_cost);\r\n    }\r\n\r\n    edge<S, T> &get_edge(int id)\r\n    {\r\n\
+    \        assert(id < m);\r\n        return g[epos[id].first][epos[id].second];\r\
+    \n    }\r\n\r\n    int size()\r\n    {\r\n        return n;\r\n    }\r\n\r\n \
+    \   inline const std::vector<edge<S, T>> &operator[](const int &u) const\r\n \
+    \   {\r\n        return g[u];\r\n    }\r\n\r\n    inline std::vector<edge<S, T>>\
+    \ &operator[](const int &u)\r\n    {\r\n        return g[u];\r\n    }\r\n\r\n\
+    private:\r\n    int n, m;\r\n    std::vector<std::vector<edge<S, T>>> g;\r\n \
+    \   std::vector<T> potential;\r\n    std::vector<std::pair<int, int>> epos;\r\n\
+    \r\n    void init_potential(bool is_dag)\r\n    {\r\n        if (is_dag)\r\n \
+    \       {\r\n            std::vector<int> d(n);\r\n            for (int u = 0;\
+    \ u < n; u++)\r\n            {\r\n                for (edge<S, T> &e : g[u])\r\
+    \n                {\r\n                    if (e.cap)\r\n                    {\r\
+    \n                        d[e.to]++;\r\n                    }\r\n            \
+    \    }\r\n            }\r\n            std::queue<int> que;\r\n            for\
+    \ (int u = 0; u < n; u++)\r\n            {\r\n                if (!d[u])\r\n \
+    \               {\r\n                    que.push(u);\r\n                }\r\n\
+    \            }\r\n            while (que.size())\r\n            {\r\n        \
+    \        int u = que.front();\r\n                que.pop();\r\n              \
+    \  for (edge<S, T> &e : g[u])\r\n                {\r\n                    if (!e.cap)\r\
+    \n                    {\r\n                        continue;\r\n             \
+    \       }\r\n                    int v = e.to;\r\n                    potential[v]\
+    \ = std::min(potential[v], potential[u] + e.cost);\r\n                    d[v]--;\r\
+    \n                    if (!d[v])\r\n                    {\r\n                \
+    \        que.push(v);\r\n                    }\r\n                }\r\n      \
+    \      }\r\n        }\r\n        else\r\n        {\r\n            for (int i =\
+    \ 0; i < n; i++)\r\n            {\r\n                bool flag = false;\r\n  \
+    \              for (int u = 0; u < n; u++)\r\n                {\r\n          \
+    \          for (edge<S, T> &e : g[u])\r\n                    {\r\n           \
+    \             if (e.cap == 0)\r\n                        {\r\n               \
+    \             continue;\r\n                        }\r\n                     \
+    \   int v = e.to;\r\n                        if (potential[v] > potential[u] +\
+    \ e.cost)\r\n                        {\r\n                            potential[v]\
     \ = potential[u] + e.cost;\r\n                            flag = true;\r\n   \
     \                     }\r\n                    }\r\n                }\r\n    \
     \            if (!flag)\r\n                {\r\n                    break;\r\n\
@@ -183,8 +185,8 @@ data:
   isVerificationFile: false
   path: lib/graph/flow/min_cost_flow.hpp
   requiredBy: []
-  timestamp: '2022-12-14 23:01:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-01-14 04:39:36+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/GRL_6_B.test.cpp
 documentation_of: lib/graph/flow/min_cost_flow.hpp

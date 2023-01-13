@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/graph/flow/min_cost_flow.hpp
     title: lib/graph/flow/min_cost_flow.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
@@ -57,7 +57,7 @@ data:
     \n            {\r\n                potential[u] += (dist[u] == -1 || dist[u] >\
     \ dist[sink]) ? dist[sink] : dist[u];\r\n            }\r\n            S flow =\
     \ f;\r\n            for (int u = sink; u != source; u = prevv[u])\r\n        \
-    \    {\r\n                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap : min(flow,\
+    \    {\r\n                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap : std::min(flow,\
     \ g[prevv[u]][preve[u]].cap);\r\n            }\r\n            f -= flow;\r\n \
     \           sum_of_flow += flow;\r\n            for (int u = sink; u != source;\
     \ u = prevv[u])\r\n            {\r\n                edge<S, T> &e = g[prevv[u]][preve[u]];\r\
@@ -85,27 +85,27 @@ data:
     \n                for (edge<S, T> &e : g[u])\r\n                {\r\n        \
     \            if (!e.cap)\r\n                    {\r\n                        continue;\r\
     \n                    }\r\n                    int v = e.to;\r\n             \
-    \       potential[v] = min(potential[v], potential[u] + e.cost);\r\n         \
-    \           d[v]--;\r\n                    if (!d[v])\r\n                    {\r\
-    \n                        que.push(v);\r\n                    }\r\n          \
-    \      }\r\n            }\r\n        }\r\n        else\r\n        {\r\n      \
-    \      for (int i = 0; i < n; i++)\r\n            {\r\n                bool flag\
-    \ = false;\r\n                for (int u = 0; u < n; u++)\r\n                {\r\
-    \n                    for (edge<S, T> &e : g[u])\r\n                    {\r\n\
-    \                        if (e.cap == 0)\r\n                        {\r\n    \
-    \                        continue;\r\n                        }\r\n          \
-    \              int v = e.to;\r\n                        if (potential[v] > potential[u]\
-    \ + e.cost)\r\n                        {\r\n                            potential[v]\
-    \ = potential[u] + e.cost;\r\n                            flag = true;\r\n   \
-    \                     }\r\n                    }\r\n                }\r\n    \
-    \            if (!flag)\r\n                {\r\n                    break;\r\n\
-    \                }\r\n            }\r\n        }\r\n    }\r\n};\r\n#line 7 \"\
-    test/aoj/GRL_6_B.test.cpp\"\nusing namespace std;\ntypedef pair<int, int> P;\n\
-    \nint main()\n{\n    int n, m, f;\n    cin >> n >> m >> f;\n    mcf_graph g(n);\n\
-    \    for (int i = 0; i < m; i++)\n    {\n        int u, v, c, d;\n        cin\
-    \ >> u >> v >> c >> d;\n        g.add_directed_edge(u, v, c, d);\n    }\n    P\
-    \ p = g.get_min_cost_flow(0, n - 1, f);\n    cout << (p.first == f ? p.second\
-    \ : -1) << endl;\n}\n"
+    \       potential[v] = std::min(potential[v], potential[u] + e.cost);\r\n    \
+    \                d[v]--;\r\n                    if (!d[v])\r\n               \
+    \     {\r\n                        que.push(v);\r\n                    }\r\n \
+    \               }\r\n            }\r\n        }\r\n        else\r\n        {\r\
+    \n            for (int i = 0; i < n; i++)\r\n            {\r\n               \
+    \ bool flag = false;\r\n                for (int u = 0; u < n; u++)\r\n      \
+    \          {\r\n                    for (edge<S, T> &e : g[u])\r\n           \
+    \         {\r\n                        if (e.cap == 0)\r\n                   \
+    \     {\r\n                            continue;\r\n                        }\r\
+    \n                        int v = e.to;\r\n                        if (potential[v]\
+    \ > potential[u] + e.cost)\r\n                        {\r\n                  \
+    \          potential[v] = potential[u] + e.cost;\r\n                         \
+    \   flag = true;\r\n                        }\r\n                    }\r\n   \
+    \             }\r\n                if (!flag)\r\n                {\r\n       \
+    \             break;\r\n                }\r\n            }\r\n        }\r\n  \
+    \  }\r\n};\r\n#line 7 \"test/aoj/GRL_6_B.test.cpp\"\nusing namespace std;\ntypedef\
+    \ pair<int, int> P;\n\nint main()\n{\n    int n, m, f;\n    cin >> n >> m >> f;\n\
+    \    mcf_graph g(n);\n    for (int i = 0; i < m; i++)\n    {\n        int u, v,\
+    \ c, d;\n        cin >> u >> v >> c >> d;\n        g.add_directed_edge(u, v, c,\
+    \ d);\n    }\n    P p = g.get_min_cost_flow(0, n - 1, f);\n    cout << (p.first\
+    \ == f ? p.second : -1) << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
     \n\n#include <iostream>\n#include <cassert>\n#include <queue>\n#include \"../../lib/graph/flow/min_cost_flow.hpp\"\
     \nusing namespace std;\ntypedef pair<int, int> P;\n\nint main()\n{\n    int n,\
@@ -118,8 +118,8 @@ data:
   isVerificationFile: true
   path: test/aoj/GRL_6_B.test.cpp
   requiredBy: []
-  timestamp: '2023-01-14 04:14:29+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-01-14 04:39:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/GRL_6_B.test.cpp
 layout: document
