@@ -3,13 +3,11 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
-using namespace std;
-typedef long long ll;
-
-const ll MOD = 998244353;
-
-#include "../../lib/math/modint.hpp"
+#include "../../lib/math/static_modint.hpp"
 #include "../../lib/math/matrix.hpp"
+using namespace std;
+using mint = static_modint<998244353>;
+typedef long long ll;
 
 int main()
 {

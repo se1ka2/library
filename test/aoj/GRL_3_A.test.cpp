@@ -4,11 +4,10 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
-using namespace std;
-typedef pair<int, int> P;
-
 #include "../../lib/graph/graph.hpp"
 #include "../../lib/graph/other/low_link.hpp"
+using namespace std;
+typedef pair<int, int> P;
 
 int main()
 {

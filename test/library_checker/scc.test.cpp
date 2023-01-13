@@ -4,10 +4,9 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
-using namespace std;
-
 #include "../../lib/graph/graph.hpp"
 #include "../../lib/graph/other/scc.hpp"
+using namespace std;
 
 int main()
 {

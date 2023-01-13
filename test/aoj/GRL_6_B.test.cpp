@@ -3,10 +3,9 @@
 #include <iostream>
 #include <cassert>
 #include <queue>
+#include "../../lib/graph/flow/min_cost_flow.hpp"
 using namespace std;
 typedef pair<int, int> P;
-
-#include "../../lib/graph/flow/min_cost_flow.hpp"
 
 int main()
 {

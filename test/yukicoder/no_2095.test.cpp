@@ -3,11 +3,10 @@
 #include <iostream>
 #include <cassert>
 #include <queue>
-using namespace std;
-typedef long long ll;
-
 #include "../../lib/graph/graph.hpp"
 #include "../../lib/graph/shortest_path/dijkstra.hpp"
+using namespace std;
+typedef long long ll;
 
 int a[1005][1005];
 

@@ -1,11 +1,9 @@
 #define PROBLEM "https://yukicoder.me/problems/no/2105"
 
 #include <iostream>
+#include "../../lib/math/static_modint.hpp"
 using namespace std;
-
-const int MOD = 998244353;
-
-#include "../../lib/math/modint.hpp"
+using mint = static_modint<998244353>;
 
 int main()
 {

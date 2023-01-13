@@ -4,9 +4,8 @@
 #include <cassert>
 #include <vector>
 #include <stack>
-using namespace std;
-
 #include "../../lib/structure/other/cartesian_tree.hpp"
+using namespace std;
 
 int main()
 {

@@ -3,9 +3,8 @@
 #include <iostream>
 #include <cassert>
 #include <queue>
-using namespace std;
-
 #include "../../lib/graph/flow/max_flow.hpp"
+using namespace std;
 
 int main()
 {

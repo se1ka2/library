@@ -3,18 +3,16 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
-using namespace std;
-
-const int MOD = 998244353;
-
-#include "../../lib/math/modint.hpp"
+#include "../../lib/math/static_modint.hpp"
 #include "../../lib/math/combination.hpp"
+using namespace std;
+using mint = static_modint<998244353>;
 
 int main()
 {
     int n, m;
     cin >> n >> m;
-    combination com(m);
+    combination<mint> com(m);
     int s = m;
     mint ans = 1;
     for (int i = 0; i < n; i++)
