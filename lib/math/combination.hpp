@@ -1,18 +1,3 @@
-mint modpow(mint x, long long n)
-{
-    mint res = 1, r = x;
-    while (n)
-    {
-        if (n & 1)
-        {
-            res *= r;
-        }
-        r *= r;
-        n >>= 1;
-    }
-    return res;
-}
-
 struct combination
 {
 public:
@@ -25,7 +10,7 @@ public:
         {
             fact[i] = fact[i - 1] * i;
         }
-        ifact[maxn] = modpow(fact[maxn], MOD - 2);
+        ifact[maxn] = fact[maxn].inv();
         for (int i = maxn - 1; i >= 0; i--)
         {
             ifact[i] = ifact[i + 1] * (i + 1);
