@@ -2,10 +2,13 @@
 "test/aoj/GRL_3_A.test.cpp": "2023-01-14 04:14:29 +0900",
 "test/aoj/GRL_3_B.test.cpp": "2023-01-14 04:14:29 +0900",
 "test/aoj/GRL_6_A.test.cpp": "2023-01-14 04:14:29 +0900",
+"test/aoj/GRL_6_B.test.cpp": "2023-01-14 04:39:36 +0900",
 "test/library_checker/cartesian_tree.test.cpp": "2023-01-14 04:14:29 +0900",
 "test/library_checker/scc.test.cpp": "2023-01-14 04:14:29 +0900",
 "test/library_checker/unionfind.test.cpp": "2022-12-10 07:58:21 +0900",
 "test/yukicoder/no_2095.test.cpp": "2023-01-14 04:14:29 +0900",
-"test/yukicoder/no_2105.test.cpp": "2023-01-14 04:14:29 +0900",
-"test/yukicoder/no_2141.test.cpp": "2023-01-14 04:14:29 +0900"
+"test/yukicoder/no_2105.test.cpp": "2023-01-14 04:39:36 +0900",
+"test/yukicoder/no_2130.test.cpp": "2023-01-14 04:39:36 +0900",
+"test/yukicoder/no_2141.test.cpp": "2023-01-14 04:39:36 +0900",
+"test/yukicoder/no_2156.test.cpp": "2023-01-14 04:39:36 +0900"
 }
