@@ -1,18 +1,22 @@
-struct mint
+template <int MOD>
+struct static_modint
 {
+    using mint = static_modint;
+
+public:
     int val;
 
-    mint() : val(0) {}
+    static_modint() : val(0) {}
 
-    mint(long long v)
+    static_modint(long long v)
     {
-        if (abs(v) >= MOD)
+        if (abs(v) >= mod())
         {
-            v %= MOD;
+            v %= mod();
         }
         if (v < 0)
         {
-            v += MOD;
+            v += mod();
         }
         val = v;
     }
@@ -20,7 +24,7 @@ struct mint
     mint &operator++()
     {
         val++;
-        if (val == MOD)
+        if (val == mod())
         {
             val = 0;
         }
@@ -31,7 +35,7 @@ struct mint
     {
         if (val == 0)
         {
-            val = MOD;
+            val = mod();
         }
         val--;
         return *this;
@@ -40,9 +44,9 @@ struct mint
     mint &operator+=(const mint &x)
     {
         val += x.val;
-        if (val >= MOD)
+        if (val >= mod())
         {
-            val -= MOD;
+            val -= mod();
         }
         return *this;
     }
@@ -52,14 +56,14 @@ struct mint
         val -= x.val;
         if (val < 0)
         {
-            val += MOD;
+            val += mod();
         }
         return *this;
     }
 
     mint &operator*=(const mint &x)
     {
-        val = (int)((long long)val * x.val % MOD);
+        val = (int)((long long)val * x.val % mod());
         return *this;
     }
 
@@ -91,7 +95,7 @@ struct mint
 
     mint inv() const
     {
-        return pow(MOD - 2);
+        return pow(mod() - 2);
     }
 
     friend mint operator+(const mint &x, const mint &y)
@@ -135,5 +139,11 @@ struct mint
         is >> v;
         x = mint(v);
         return is;
+    }
+
+private:
+    static constexpr int mod()
+    {
+        return MOD;
     }
 };
