@@ -102,7 +102,7 @@ public:
         return a[i];
     }
 
-    vector<T> &operator[](int i)
+    std::vector<T> &operator[](int i)
     {
         return a[i];
     }

@@ -10,7 +10,7 @@ public:
 
     static_modint(long long v)
     {
-        if (abs(v) >= mod())
+        if (std::abs(v) >= mod())
         {
             v %= mod();
         }

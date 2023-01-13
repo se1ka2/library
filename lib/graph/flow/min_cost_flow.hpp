@@ -101,7 +101,7 @@ public:
             S flow = f;
             for (int u = sink; u != source; u = prevv[u])
             {
-                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap : min(flow, g[prevv[u]][preve[u]].cap);
+                flow = (flow < 0) ? g[prevv[u]][preve[u]].cap : std::min(flow, g[prevv[u]][preve[u]].cap);
             }
             f -= flow;
             sum_of_flow += flow;
@@ -179,7 +179,7 @@ private:
                         continue;
                     }
                     int v = e.to;
-                    potential[v] = min(potential[v], potential[u] + e.cost);
+                    potential[v] = std::min(potential[v], potential[u] + e.cost);
                     d[v]--;
                     if (!d[v])
                     {
