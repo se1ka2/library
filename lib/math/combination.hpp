@@ -1,3 +1,4 @@
+template <typename M>
 struct combination
 {
 public:
@@ -17,7 +18,7 @@ public:
         }
     }
 
-    mint operator()(int n, int k)
+    M operator()(int n, int k)
     {
         assert(n <= maxn);
         if (k > n || k < 0)
@@ -29,6 +30,6 @@ public:
 
 private:
     int maxn;
-    std::vector<mint> fact;
-    std::vector<mint> ifact;
+    std::vector<M> fact;
+    std::vector<M> ifact;
 };
