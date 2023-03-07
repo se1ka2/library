@@ -1,25 +1,24 @@
 template <typename S = int, typename T = int>
-struct edge
-{
-    int from, to;
-    S cap, flow;
-    T cost;
-    int rev;
-    int id;
-
-    operator int() const
-    {
-        return to;
-    }
-};
-
-template <typename S = int, typename T = int>
-struct mcf_graph
+struct MinimumCostFlow
 {
 public:
-    mcf_graph() {}
+    struct Edge
+    {
+        int from, to;
+        S cap, flow;
+        T cost;
+        int rev;
+        int id;
 
-    mcf_graph(int n) : n(n)
+        operator int() const
+        {
+            return to;
+        }
+    };
+
+    MinimumCostFlow() {}
+
+    MinimumCostFlow(int n) : n(n)
     {
         g.resize(n);
         potential.resize(n);
@@ -30,8 +29,8 @@ public:
         assert(0 <= from && from < n);
         assert(0 <= to && to < n);
         epos.push_back(std::pair<int, int>(from, (int)g[from].size()));
-        g[from].push_back((edge<S, T>){from, to, cap, 0, cost, (int)g[to].size(), m});
-        g[to].push_back((edge<S, T>){to, from, 0, cap, -cost, (int)g[from].size() - 1, m++});
+        g[from].push_back((Edge){from, to, cap, 0, cost, (int)g[to].size(), m});
+        g[to].push_back((Edge){to, from, 0, cap, -cost, (int)g[from].size() - 1, m++});
     }
 
     std::pair<S, T> get_min_cost_flow(int source, int sink, S f = -1)
@@ -39,7 +38,7 @@ public:
         bool nonnegative = true;
         for (int u = 0; u < n; u++)
         {
-            for (edge<S, T> &e : g[u])
+            for (Edge &e : g[u])
             {
                 if (e.cap && e.cost + potential[u] - potential[e.to] < 0)
                 {
@@ -74,7 +73,7 @@ public:
                 }
                 for (int i = 0; i < (int)g[u].size(); i++)
                 {
-                    edge<S, T> &e = g[u][i];
+                    Edge &e = g[u][i];
                     if (e.cap == 0)
                     {
                         continue;
@@ -107,7 +106,7 @@ public:
             sum_of_flow += flow;
             for (int u = sink; u != source; u = prevv[u])
             {
-                edge<S, T> &e = g[prevv[u]][preve[u]];
+                Edge &e = g[prevv[u]][preve[u]];
                 e.cap -= flow;
                 e.flow += flow;
                 g[u][e.rev].cap += flow;
@@ -118,7 +117,7 @@ public:
         return std::pair<S, T>(sum_of_flow, sum_of_cost);
     }
 
-    edge<S, T> &get_edge(int id)
+    Edge &get_edge(int id)
     {
         assert(id < m);
         return g[epos[id].first][epos[id].second];
@@ -129,19 +128,24 @@ public:
         return n;
     }
 
-    inline const std::vector<edge<S, T>> &operator[](const int &u) const
+    int edge_size()
+    {
+        return m;
+    }
+
+    inline const std::vector<Edge> &operator[](const int &u) const
     {
         return g[u];
     }
 
-    inline std::vector<edge<S, T>> &operator[](const int &u)
+    inline std::vector<Edge> &operator[](const int &u)
     {
         return g[u];
     }
 
 private:
     int n, m;
-    std::vector<std::vector<edge<S, T>>> g;
+    std::vector<std::vector<Edge>> g;
     std::vector<T> potential;
     std::vector<std::pair<int, int>> epos;
 
@@ -152,7 +156,7 @@ private:
             std::vector<int> d(n);
             for (int u = 0; u < n; u++)
             {
-                for (edge<S, T> &e : g[u])
+                for (Edge &e : g[u])
                 {
                     if (e.cap)
                     {
@@ -172,7 +176,7 @@ private:
             {
                 int u = que.front();
                 que.pop();
-                for (edge<S, T> &e : g[u])
+                for (Edge &e : g[u])
                 {
                     if (!e.cap)
                     {
@@ -187,15 +191,20 @@ private:
                     }
                 }
             }
+            for(int u = 0; u < n; u++)
+            {
+                assert(!d[u]);
+            }
         }
         else
         {
+            bool flag = true;
             for (int i = 0; i < n; i++)
             {
-                bool flag = false;
+                flag = false;
                 for (int u = 0; u < n; u++)
                 {
-                    for (edge<S, T> &e : g[u])
+                    for (Edge &e : g[u])
                     {
                         if (e.cap == 0)
                         {
@@ -214,6 +223,7 @@ private:
                     break;
                 }
             }
+            assert(!flag);
         }
     }
 };
