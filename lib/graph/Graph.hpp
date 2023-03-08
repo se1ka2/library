@@ -2,6 +2,8 @@ template <typename T = int>
 struct Graph
 {
 public:
+    using type_name = T;
+
     struct Edge
     {
         int from, to;
