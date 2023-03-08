@@ -1,5 +1,5 @@
-template <typename G>
-std::vector<int> bfs(G &g, int s)
+template <typename GRAPH>
+std::vector<int> bfs(GRAPH &g, int s)
 {
     int n = g.size();
     assert(s >= 0 && s < n);
@@ -11,7 +11,7 @@ std::vector<int> bfs(G &g, int s)
     {
         int u = que.front();
         que.pop();
-        for (int v : g.g[u])
+        for (int v : g[u])
         {
             if (d[v] == -1)
             {
