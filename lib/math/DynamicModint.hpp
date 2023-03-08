@@ -1,14 +1,13 @@
-template <int MOD>
-struct static_modint
+struct DynamicModint
 {
-    using mint = static_modint;
+    using mint = DynamicModint;
 
 public:
     int val;
 
-    static_modint() : val(0) {}
+    DynamicModint() : val(0) {}
 
-    static_modint(long long v)
+    DynamicModint(long long v)
     {
         if (std::abs(v) >= mod())
         {
@@ -19,6 +18,11 @@ public:
             v += mod();
         }
         val = v;
+    }
+
+    static void set_mod(int m)
+    {
+        MOD = m;
     }
 
     mint &operator++()
@@ -142,8 +146,11 @@ public:
     }
 
 private:
-    static constexpr int mod()
+    static int MOD;
+    static int mod()
     {
         return MOD;
     }
 };
+
+int DynamicModint::MOD = 998244353;

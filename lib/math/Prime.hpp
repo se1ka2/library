@@ -1,17 +1,16 @@
-struct prime_sturcture
+struct PrimeStructure
 {
 public:
-    prime_sturcture(int max_n) : max_n(max_n), p(max_n + 1, true)
+    PrimeStructure(int max_n) : max_n(max_n), largest_prime_factor(max_n + 1, -1)
     {
-        p[0] = p[1] = false;
         for (int i = 2; i <= max_n; i++)
         {
-            if (p[i])
+            if (largest_prime_factor[i] == -1)
             {
                 prime_list.push_back(i);
-                for (int j = i * 2; j <= max_n; j += i)
+                for (int j = i; j <= max_n; j += i)
                 {
-                    p[j] = false;
+                    largest_prime_factor[j] = i;
                 }
             }
         }
@@ -19,8 +18,21 @@ public:
 
     bool is_prime(int n)
     {
-        assert(n <= max_n);
-        return p[n];
+        assert(n >= 0 && n <= max_n);
+        return largest_prime_factor[n] == n;
+    }
+
+    std::vector<int> factorize(int n)
+    {
+        assert(n >= 1 && n <= max_n);
+        std::vector<int> res;
+        while (n > 1)
+        {
+            int p = largest_prime_factor[n];
+            res.push_back(p);
+            n /= p;
+        }
+        return res;
     }
 
     int size()
@@ -46,6 +58,6 @@ public:
 
 private:
     int max_n;
-    std::vector<bool> p;
+    std::vector<int> largest_prime_factor;
     std::vector<int> prime_list;
 };
