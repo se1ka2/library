@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/scc"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_C"
 
 #include <algorithm>
 #include <iostream>
@@ -20,15 +20,13 @@ int main()
         g.add_directed_edge(a, b);
     }
     SCC<Graph<int>> scc(g);
-    int k = scc.number_of_component();
-    cout << k << endl;
-    for (int x = 0; x < k; x++)
+    scc.number_of_component();
+    int q;
+    cin >> q;
+    while(q--)
     {
-        cout << scc.group[x].size() << " ";
-        for (int u : scc.group[x])
-        {
-            cout << u << " ";
-        }
-        cout << endl;
+        int u, v;
+        cin >> u >> v;
+        cout << (bool)(scc[u] == scc[v]) << endl;
     }
 }

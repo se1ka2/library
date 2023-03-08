@@ -4,8 +4,8 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
-#include "../../lib/graph/graph.hpp"
-#include "../../lib/graph/other/low_link.hpp"
+#include "../../lib/graph/Graph.hpp"
+#include "../../lib/graph/other/LowLink.hpp"
 using namespace std;
 typedef pair<int, int> P;
 
@@ -13,16 +13,16 @@ int main()
 {
     int n, m;
     cin >> n >> m;
-    graph g(n);
+    Graph<int> g(n);
     for (int i = 0; i < m; i++)
     {
         int s, t;
         cin >> s >> t;
         g.add_undirected_edge(s, t);
     }
-    low_link lowlink(g);
+    LowLink<Graph<int>> lowlink(g);
     vector<P> ans;
-    for (edge<int> e : lowlink.bridge)
+    for (auto e : lowlink.bridge)
     {
         ans.push_back(P(min(e.from, e.to), max(e.from, e.to)));
     }

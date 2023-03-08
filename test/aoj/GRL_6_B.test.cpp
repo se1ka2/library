@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 #include <queue>
-#include "../../lib/graph/flow/min_cost_flow.hpp"
+#include "../../lib/graph/flow/MinimumCostFlow.hpp"
 using namespace std;
 typedef pair<int, int> P;
 
@@ -11,7 +11,7 @@ int main()
 {
     int n, m, f;
     cin >> n >> m >> f;
-    mcf_graph g(n);
+    MinimumCostFlow<int, int> g(n);
     for (int i = 0; i < m; i++)
     {
         int u, v, c, d;

@@ -4,7 +4,7 @@
 #include <cassert>
 #include <vector>
 #include <stack>
-#include "../../lib/structure/other/cartesian_tree.hpp"
+#include "../../lib/structure/other/CartesianTree.hpp"
 using namespace std;
 
 int main()

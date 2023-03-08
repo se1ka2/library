@@ -3,14 +3,14 @@
 #include <iostream>
 #include <cassert>
 #include <queue>
-#include "../../lib/graph/flow/max_flow.hpp"
+#include "../../lib/graph/flow/MaximumFlow.hpp"
 using namespace std;
 
 int main()
 {
     int n, m;
     cin >> n >> m;
-    mf_graph g(n);
+    MaximumFlow<int> g(n);
     for (int i = 0; i < m; i++)
     {
         int u, v, c;
