@@ -3,10 +3,10 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
-#include "../../lib/math/static_modint.hpp"
-#include "../../lib/math/combination_fix_n.hpp"
+#include "../../lib/math/StaticModint.hpp"
+#include "../../lib/math/CombinationFixN.hpp"
 using namespace std;
-using mint = static_modint<998244353>;
+using mint = StaticModint<998244353>;
 typedef long long ll;
 
 int main()

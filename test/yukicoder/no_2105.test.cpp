@@ -1,9 +1,9 @@
 #define PROBLEM "https://yukicoder.me/problems/no/2105"
 
 #include <iostream>
-#include "../../lib/math/static_modint.hpp"
+#include "../../lib/math/StaticModint.hpp"
 using namespace std;
-using mint = static_modint<998244353>;
+using mint = StaticModint<998244353>;
 
 int main()
 {

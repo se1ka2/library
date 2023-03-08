@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 #include <queue>
-#include "../../lib/graph/graph.hpp"
+#include "../../lib/graph/Graph.hpp"
 #include "../../lib/graph/shortest_path/dijkstra.hpp"
 using namespace std;
 typedef long long ll;
@@ -21,7 +21,7 @@ int main()
             cin >> a[i][j];
         }
     }
-    graph<ll> g(n * m + n);
+    Graph<ll> g(n * m + n);
     for(int i = 0; i < n; i++)
     {
         for(int j = 0; j < m; j++)
