@@ -2,7 +2,7 @@ template <typename T = int>
 struct Graph
 {
 public:
-    using type_name = T;
+    using value_type = T;
 
     struct Edge
     {
