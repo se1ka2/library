@@ -1,13 +1,43 @@
-template <typename G, typename T = int>
-struct scc_structure
+template <typename GRAPH>
+struct SCC
 {
 public:
     std::vector<std::vector<int>> group;
 
-    scc_structure() {}
+    SCC() {}
 
-    scc_structure(G &g) : n(g.size()), k(0), g(g), rg(g.size()), cmp(n), used(n)
+    SCC(GRAPH &g) : n(g.size()), k(0), g(g), cmp(n)
     {
+        std::vector<std::vector<int>> rg(n);
+        std::vector<bool> used(n);
+        std::vector<int> vs;
+
+        auto dfs = [&](auto self, int u) -> void
+        {
+            used[u] = true;
+            for (int v : g[u])
+            {
+                if (!used[v])
+                {
+                    self(self, v);
+                }
+            }
+            vs.push_back(u);
+        };
+
+        auto rdfs = [&](auto self, int u) -> void
+        {
+            used[u] = true;
+            cmp[u] = k;
+            for (int v : rg[u])
+            {
+                if (!used[v])
+                {
+                    self(self, v);
+                }
+            }
+        };
+
         for (int u = 0; u < n; u++)
         {
             for (int v : g[u])
@@ -19,7 +49,7 @@ public:
         {
             if (!used[u])
             {
-                dfs(u);
+                dfs(dfs, u);
             }
         }
         fill(used.begin(), used.end(), false);
@@ -27,7 +57,8 @@ public:
         {
             if (!used[vs[i]])
             {
-                rdfs(vs[i], k++);
+                rdfs(rdfs, vs[i]);
+                k++;
             }
         }
         group.resize(k);
@@ -37,10 +68,10 @@ public:
         }
     }
 
-    graph<int> get_dag()
+    GRAPH get_dag()
     {
         std::vector<bool> b(k);
-        graph<int> dag(k);
+        GRAPH dag(k);
         for (int x = 0; x < k; x++)
         {
             for (int u : group[x])
@@ -79,35 +110,6 @@ public:
 private:
     int n;
     int k;
-    const G &g;
-    std::vector<std::vector<int>> rg;
+    const GRAPH &g;
     std::vector<int> cmp;
-    std::vector<bool> used;
-    std::vector<int> vs;
-
-    void dfs(int u)
-    {
-        used[u] = true;
-        for (int v : g[u])
-        {
-            if (!used[v])
-            {
-                dfs(v);
-            }
-        }
-        vs.push_back(u);
-    }
-
-    void rdfs(int u, int k)
-    {
-        used[u] = true;
-        cmp[u] = k;
-        for (int v : rg[u])
-        {
-            if (!used[v])
-            {
-                rdfs(v, k);
-            }
-        }
-    }
 };
