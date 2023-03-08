@@ -1,14 +1,14 @@
 template <typename T>
-struct cartesian_tree
+struct CartesianTree
 {
 public:
     std::vector<int> par;
     std::vector<int> lc, rc;
     std::vector<int> lp, rp;
 
-    cartesian_tree() {}
+    CartesianTree() {}
 
-    cartesian_tree(std::vector<T> &a) : n(a.size()), par(a.size()), lc(a.size(), -1), rc(a.size(), -1), lp(a.size(), -1), rp(a.size(), a.size())
+    CartesianTree(std::vector<T> &a) : n(a.size()), par(a.size()), lc(a.size(), -1), rc(a.size(), -1), lp(a.size(), -1), rp(a.size(), a.size())
     {
         std::stack<int> st;
         for (int i = 0; i < n; i++)
@@ -46,7 +46,24 @@ public:
                 r = i;
             }
         }
-        dfs(r);
+
+        auto dfs = [&](auto self, int i) -> void
+        {
+            if (lc[i] >= 0)
+            {
+                lp[lc[i]] = lp[i];
+                rp[lc[i]] = i;
+                self(self, lc[i]);
+            }
+            if (rc[i] >= 0)
+            {
+                lp[rc[i]] = i;
+                rp[rc[i]] = rp[i];
+                self(self, rc[i]);
+            }
+        };
+
+        dfs(dfs, r);
     }
 
     int root()
@@ -54,23 +71,12 @@ public:
         return r;
     }
 
+    int size()
+    {
+        return n;
+    }
+
 private:
     int n;
     int r;
-
-    void dfs(int i)
-    {
-        if (lc[i] >= 0)
-        {
-            lp[lc[i]] = lp[i];
-            rp[lc[i]] = i;
-            dfs(lc[i]);
-        }
-        if (rc[i] >= 0)
-        {
-            lp[rc[i]] = i;
-            rp[rc[i]] = rp[i];
-            dfs(rc[i]);
-        }
-    }
 };

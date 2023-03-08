@@ -16,7 +16,7 @@ int main()
     {
         cin >> a[i];
     }
-    cartesian_tree ct(a);
+    CartesianTree ct(a);
     for (int i = 0; i < n; i++)
     {
         cout << ct.par[i] << " ";

@@ -1,20 +1,12 @@
-struct union_find
+struct UnionFind
 {
-    int n;
-    std::vector<int> par;
-    std::vector<int> sz;
-    int num_of_components;
-
-    union_find(int n) : n(n)
+public:
+    UnionFind(int n) : n(n), par(n), sz(n, 1), num_of_components(n)
     {
-        par.resize(n);
-        sz.resize(n);
         for (int i = 0; i < n; i++)
         {
             par[i] = i;
-            sz[i] = 1;
         }
-        num_of_components = n;
     }
 
     int find(int i)
@@ -74,4 +66,10 @@ struct union_find
     {
         return find(i);
     }
+
+private:
+    int n;
+    std::vector<int> par;
+    std::vector<int> sz;
+    int num_of_components;
 };
