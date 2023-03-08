@@ -14,10 +14,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/2095
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_C
     links:
-    - https://yukicoder.me/problems/no/2095
-  bundledCode: "#line 1 \"test/yukicoder/no_2095.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/2095\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_C
+  bundledCode: "#line 1 \"test/aoj/ALDS1_12_C.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_C\"\
     \n\n#include <iostream>\n#include <cassert>\n#include <queue>\n#line 1 \"lib/graph/Graph.hpp\"\
     \ntemplate <typename T = int>\r\nstruct Graph\r\n{\r\npublic:\r\n    using value_type\
     \ = T;\r\n\r\n    struct Edge\r\n    {\r\n        int from, to;\r\n        T cost;\r\
@@ -46,43 +46,35 @@ data:
     \ e.to;\r\n            if (d[v] == -1 || d[v] > d[u] + e.cost)\r\n           \
     \ {\r\n                d[v] = d[u] + e.cost;\r\n                que.push(P(d[v],\
     \ v));\r\n            }\r\n        }\r\n    }\r\n    return d;\r\n}\r\n#line 8\
-    \ \"test/yukicoder/no_2095.test.cpp\"\nusing namespace std;\ntypedef long long\
-    \ ll;\n\nint a[1005][1005];\n\nint main()\n{\n    int n, m;\n    cin >> n >> m;\n\
-    \    for(int i = 0; i < n; i++)\n    {\n        for(int j = 0; j < m; j++)\n \
-    \       {\n            cin >> a[i][j];\n        }\n    }\n    Graph<ll> g(n *\
-    \ m + n);\n    for(int i = 0; i < n; i++)\n    {\n        for(int j = 0; j < m;\
-    \ j++)\n        {\n            g.add_directed_edge(i * m + j, i + n * m, 0);\n\
-    \        }\n    }\n    for(int i = 0; i < n - 1; i++)\n    {\n        for(int\
-    \ j = 0; j < m; j++)\n        {\n            g.add_directed_edge(i + n * m, (i\
-    \ + 1) * m + j, a[i][j] + a[i + 1][j]);\n            g.add_directed_edge(i * m\
-    \ + j, (i + 1) * m + j, a[i + 1][j]);\n        }\n    }\n    vector<ll> d = dijkstra(g,\
-    \ n * m);\n    cout << d[n * m + n - 1] << endl;\n}\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/2095\"\n\n#include <iostream>\n\
-    #include <cassert>\n#include <queue>\n#include \"../../lib/graph/Graph.hpp\"\n\
-    #include \"../../lib/graph/shortest_path/dijkstra.hpp\"\nusing namespace std;\n\
-    typedef long long ll;\n\nint a[1005][1005];\n\nint main()\n{\n    int n, m;\n\
-    \    cin >> n >> m;\n    for(int i = 0; i < n; i++)\n    {\n        for(int j\
-    \ = 0; j < m; j++)\n        {\n            cin >> a[i][j];\n        }\n    }\n\
-    \    Graph<ll> g(n * m + n);\n    for(int i = 0; i < n; i++)\n    {\n        for(int\
-    \ j = 0; j < m; j++)\n        {\n            g.add_directed_edge(i * m + j, i\
-    \ + n * m, 0);\n        }\n    }\n    for(int i = 0; i < n - 1; i++)\n    {\n\
-    \        for(int j = 0; j < m; j++)\n        {\n            g.add_directed_edge(i\
-    \ + n * m, (i + 1) * m + j, a[i][j] + a[i + 1][j]);\n            g.add_directed_edge(i\
-    \ * m + j, (i + 1) * m + j, a[i + 1][j]);\n        }\n    }\n    vector<ll> d\
-    \ = dijkstra(g, n * m);\n    cout << d[n * m + n - 1] << endl;\n}\n"
+    \ \"test/aoj/ALDS1_12_C.test.cpp\"\nusing namespace std;\n\nint main()\n{\n  \
+    \  int n;\n    cin >> n;\n    Graph<int> g(n);\n    for(int i = 0; i < n; i++)\n\
+    \    {\n        int u, k;\n        cin >> u >> k;\n        for(int j = 0; j <\
+    \ k; j++)\n        {\n            int v, c;\n            cin >> v >> c;\n    \
+    \        g.add_directed_edge(u, v, c);\n        }\n    }\n    vector<int> d =\
+    \ dijkstra(g, 0);\n    for(int u = 0; u < n; u++)\n    {\n        cout << u <<\
+    \ \" \" << d[u] << endl;\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_12_C\"\
+    \n\n#include <iostream>\n#include <cassert>\n#include <queue>\n#include \"../../lib/graph/Graph.hpp\"\
+    \n#include \"../../lib/graph/shortest_path/dijkstra.hpp\"\nusing namespace std;\n\
+    \nint main()\n{\n    int n;\n    cin >> n;\n    Graph<int> g(n);\n    for(int\
+    \ i = 0; i < n; i++)\n    {\n        int u, k;\n        cin >> u >> k;\n     \
+    \   for(int j = 0; j < k; j++)\n        {\n            int v, c;\n           \
+    \ cin >> v >> c;\n            g.add_directed_edge(u, v, c);\n        }\n    }\n\
+    \    vector<int> d = dijkstra(g, 0);\n    for(int u = 0; u < n; u++)\n    {\n\
+    \        cout << u << \" \" << d[u] << endl;\n    }\n}\n"
   dependsOn:
   - lib/graph/Graph.hpp
   - lib/graph/shortest_path/dijkstra.hpp
   isVerificationFile: true
-  path: test/yukicoder/no_2095.test.cpp
+  path: test/aoj/ALDS1_12_C.test.cpp
   requiredBy: []
-  timestamp: '2023-03-09 00:20:05+09:00'
+  timestamp: '2023-03-09 00:15:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/no_2095.test.cpp
+documentation_of: test/aoj/ALDS1_12_C.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/no_2095.test.cpp
-- /verify/test/yukicoder/no_2095.test.cpp.html
-title: test/yukicoder/no_2095.test.cpp
+- /verify/test/aoj/ALDS1_12_C.test.cpp
+- /verify/test/aoj/ALDS1_12_C.test.cpp.html
+title: test/aoj/ALDS1_12_C.test.cpp
 ---

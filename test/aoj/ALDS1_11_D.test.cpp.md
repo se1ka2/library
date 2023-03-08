@@ -11,12 +11,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/unionfind
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D
     links:
-    - https://judge.yosupo.jp/problem/unionfind
-  bundledCode: "#line 1 \"test/library_checker/unionfind.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/unionfind\"\n\n#include <iostream>\n#include\
-    \ <cassert>\n#include <vector>\n#line 1 \"lib/structure/union_find/UnionFind.hpp\"\
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D
+  bundledCode: "#line 1 \"test/aoj/ALDS1_11_D.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D\"\
+    \n\n#include <iostream>\n#include <cassert>\n#include <vector>\n#line 1 \"lib/structure/union_find/UnionFind.hpp\"\
     \nstruct UnionFind\r\n{\r\npublic:\r\n    UnionFind(int n) : n(n), par(n), sz(n,\
     \ 1), num_of_components(n)\r\n    {\r\n        for (int i = 0; i < n; i++)\r\n\
     \        {\r\n            par[i] = i;\r\n        }\r\n    }\r\n\r\n    int find(int\
@@ -36,31 +35,31 @@ data:
     \ n);\r\n        return i == find(i);\r\n    }\r\n\r\n    int operator[](int i)\r\
     \n    {\r\n        return find(i);\r\n    }\r\n\r\nprivate:\r\n    int n;\r\n\
     \    std::vector<int> par;\r\n    std::vector<int> sz;\r\n    int num_of_components;\r\
-    \n};\r\n#line 7 \"test/library_checker/unionfind.test.cpp\"\nusing namespace std;\n\
-    \nint main()\n{\n    int n, q;\n    cin >> n >> q;\n    UnionFind uf(n);\n   \
-    \ while(q--)\n    {\n        int t, u, v;\n        cin >> t >> u >> v;\n     \
-    \   if(t)\n        {\n            cout << (int)uf.same(u, v) << endl;\n      \
-    \  }\n        else\n        {\n            uf.unite(u, v);\n        }\n    }\n\
-    }\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n\n#include\
-    \ <iostream>\n#include <cassert>\n#include <vector>\n#include \"../../lib/structure/union_find/UnionFind.hpp\"\
-    \nusing namespace std;\n\nint main()\n{\n    int n, q;\n    cin >> n >> q;\n \
-    \   UnionFind uf(n);\n    while(q--)\n    {\n        int t, u, v;\n        cin\
-    \ >> t >> u >> v;\n        if(t)\n        {\n            cout << (int)uf.same(u,\
-    \ v) << endl;\n        }\n        else\n        {\n            uf.unite(u, v);\n\
-    \        }\n    }\n}\n"
+    \n};\r\n#line 7 \"test/aoj/ALDS1_11_D.test.cpp\"\nusing namespace std;\n\nint\
+    \ main()\n{\n    int n, m;\n    cin >> n >> m;\n    UnionFind uf(n);\n    for(int\
+    \ i = 0; i < m; i++)\n    {\n        int u, v;\n        cin >> u >> v;\n     \
+    \   uf.unite(u, v);\n    }\n    int q;\n    cin >> q;\n    while(q--)\n    {\n\
+    \        int u, v;\n        cin >> u >> v;\n        cout << (uf.same(u, v) ? \"\
+    yes\" : \"no\") << endl;\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_D\"\
+    \n\n#include <iostream>\n#include <cassert>\n#include <vector>\n#include \"../../lib/structure/union_find/UnionFind.hpp\"\
+    \nusing namespace std;\n\nint main()\n{\n    int n, m;\n    cin >> n >> m;\n \
+    \   UnionFind uf(n);\n    for(int i = 0; i < m; i++)\n    {\n        int u, v;\n\
+    \        cin >> u >> v;\n        uf.unite(u, v);\n    }\n    int q;\n    cin >>\
+    \ q;\n    while(q--)\n    {\n        int u, v;\n        cin >> u >> v;\n     \
+    \   cout << (uf.same(u, v) ? \"yes\" : \"no\") << endl;\n    }\n}\n"
   dependsOn:
   - lib/structure/union_find/UnionFind.hpp
   isVerificationFile: true
-  path: test/library_checker/unionfind.test.cpp
+  path: test/aoj/ALDS1_11_D.test.cpp
   requiredBy: []
-  timestamp: '2023-03-08 22:53:50+09:00'
+  timestamp: '2023-03-09 00:15:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/unionfind.test.cpp
+documentation_of: test/aoj/ALDS1_11_D.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/unionfind.test.cpp
-- /verify/test/library_checker/unionfind.test.cpp.html
-title: test/library_checker/unionfind.test.cpp
+- /verify/test/aoj/ALDS1_11_D.test.cpp
+- /verify/test/aoj/ALDS1_11_D.test.cpp.html
+title: test/aoj/ALDS1_11_D.test.cpp
 ---

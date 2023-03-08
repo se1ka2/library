@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"lib/math/matrix.hpp\"\ntemplate <typename T>\nstruct Matrix\n\
+  bundledCode: "#line 1 \"lib/math/Matrix.hpp\"\ntemplate <typename T>\nstruct Matrix\n\
     {\npublic:\n    Matrix() {}\n\n    Matrix(int n, int m) : n(n), m(m), a(n, std::vector<T>(m))\
     \ {}\n\n    Matrix(int n) : n(n), m(n), a(n, std::vector<T>(n)) {}\n\n    static\
     \ Matrix<T> I(int n)\n    {\n        Matrix<T> res(n);\n        for (int i = 0;\
@@ -73,16 +73,16 @@ data:
     \ n, m;\n    std::vector<std::vector<T>> a;\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: lib/math/matrix.hpp
+  path: lib/math/Matrix.hpp
   requiredBy: []
-  timestamp: '2023-01-14 04:39:36+09:00'
+  timestamp: '2023-03-08 19:41:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/no_2156.test.cpp
-documentation_of: lib/math/matrix.hpp
+documentation_of: lib/math/Matrix.hpp
 layout: document
 redirect_from:
-- /library/lib/math/matrix.hpp
-- /library/lib/math/matrix.hpp.html
-title: lib/math/matrix.hpp
+- /library/lib/math/Matrix.hpp
+- /library/lib/math/Matrix.hpp.html
+title: lib/math/Matrix.hpp
 ---

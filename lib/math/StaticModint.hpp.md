@@ -20,19 +20,19 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"lib/math/static_modint.hpp\"\ntemplate <int MOD>\nstruct\
-    \ static_modint\n{\n    using mint = static_modint;\n\npublic:\n    int val;\n\
-    \n    static_modint() : val(0) {}\n\n    static_modint(long long v)\n    {\n \
-    \       if (std::abs(v) >= mod())\n        {\n            v %= mod();\n      \
-    \  }\n        if (v < 0)\n        {\n            v += mod();\n        }\n    \
-    \    val = v;\n    }\n\n    mint &operator++()\n    {\n        val++;\n      \
-    \  if (val == mod())\n        {\n            val = 0;\n        }\n        return\
-    \ *this;\n    }\n\n    mint &operator--()\n    {\n        if (val == 0)\n    \
-    \    {\n            val = mod();\n        }\n        val--;\n        return *this;\n\
-    \    }\n\n    mint &operator+=(const mint &x)\n    {\n        val += x.val;\n\
-    \        if (val >= mod())\n        {\n            val -= mod();\n        }\n\
-    \        return *this;\n    }\n\n    mint &operator-=(const mint &x)\n    {\n\
-    \        val -= x.val;\n        if (val < 0)\n        {\n            val += mod();\n\
+  bundledCode: "#line 1 \"lib/math/StaticModint.hpp\"\ntemplate <int MOD>\nstruct\
+    \ StaticModint\n{\n    using mint = StaticModint;\n\npublic:\n    int val;\n\n\
+    \    StaticModint() : val(0) {}\n\n    StaticModint(long long v)\n    {\n    \
+    \    if (std::abs(v) >= mod())\n        {\n            v %= mod();\n        }\n\
+    \        if (v < 0)\n        {\n            v += mod();\n        }\n        val\
+    \ = v;\n    }\n\n    mint &operator++()\n    {\n        val++;\n        if (val\
+    \ == mod())\n        {\n            val = 0;\n        }\n        return *this;\n\
+    \    }\n\n    mint &operator--()\n    {\n        if (val == 0)\n        {\n  \
+    \          val = mod();\n        }\n        val--;\n        return *this;\n  \
+    \  }\n\n    mint &operator+=(const mint &x)\n    {\n        val += x.val;\n  \
+    \      if (val >= mod())\n        {\n            val -= mod();\n        }\n  \
+    \      return *this;\n    }\n\n    mint &operator-=(const mint &x)\n    {\n  \
+    \      val -= x.val;\n        if (val < 0)\n        {\n            val += mod();\n\
     \        }\n        return *this;\n    }\n\n    mint &operator*=(const mint &x)\n\
     \    {\n        val = (int)((long long)val * x.val % mod());\n        return *this;\n\
     \    }\n\n    mint &operator/=(const mint &x)\n    {\n        *this *= x.inv();\n\
@@ -54,8 +54,8 @@ data:
     \ std::istream &operator>>(std::istream &is, mint &x)\n    {\n        long long\
     \ v;\n        is >> v;\n        x = mint(v);\n        return is;\n    }\n\nprivate:\n\
     \    static constexpr int mod()\n    {\n        return MOD;\n    }\n};\n"
-  code: "template <int MOD>\nstruct static_modint\n{\n    using mint = static_modint;\n\
-    \npublic:\n    int val;\n\n    static_modint() : val(0) {}\n\n    static_modint(long\
+  code: "template <int MOD>\nstruct StaticModint\n{\n    using mint = StaticModint;\n\
+    \npublic:\n    int val;\n\n    StaticModint() : val(0) {}\n\n    StaticModint(long\
     \ long v)\n    {\n        if (std::abs(v) >= mod())\n        {\n            v\
     \ %= mod();\n        }\n        if (v < 0)\n        {\n            v += mod();\n\
     \        }\n        val = v;\n    }\n\n    mint &operator++()\n    {\n       \
@@ -90,19 +90,19 @@ data:
     \        return MOD;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: lib/math/static_modint.hpp
+  path: lib/math/StaticModint.hpp
   requiredBy: []
-  timestamp: '2023-01-14 04:39:36+09:00'
+  timestamp: '2023-03-08 19:39:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/no_2156.test.cpp
-  - test/yukicoder/no_2141.test.cpp
-  - test/yukicoder/no_2105.test.cpp
   - test/yukicoder/no_2130.test.cpp
-documentation_of: lib/math/static_modint.hpp
+  - test/yukicoder/no_2105.test.cpp
+  - test/yukicoder/no_2141.test.cpp
+  - test/yukicoder/no_2156.test.cpp
+documentation_of: lib/math/StaticModint.hpp
 layout: document
 redirect_from:
-- /library/lib/math/static_modint.hpp
-- /library/lib/math/static_modint.hpp.html
-title: lib/math/static_modint.hpp
+- /library/lib/math/StaticModint.hpp
+- /library/lib/math/StaticModint.hpp.html
+title: lib/math/StaticModint.hpp
 ---

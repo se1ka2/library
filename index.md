@@ -1,41 +1,44 @@
 ---
 data:
   libraryCategories:
+  - name: lib/graph
+    pages:
+    - icon: ':question:'
+      path: lib/graph/Graph.hpp
+      title: lib/graph/Graph.hpp
   - name: lib/graph/flow
     pages:
     - icon: ':heavy_check_mark:'
-      path: lib/graph/flow/max_flow.hpp
-      title: lib/graph/flow/max_flow.hpp
+      path: lib/graph/flow/MaximumFlow.hpp
+      title: lib/graph/flow/MaximumFlow.hpp
     - icon: ':heavy_check_mark:'
-      path: lib/graph/flow/min_cost_flow.hpp
-      title: lib/graph/flow/min_cost_flow.hpp
-  - name: lib/graph
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: lib/graph/graph.hpp
-      title: lib/graph/graph.hpp
+      path: lib/graph/flow/MinimumCostFlow.hpp
+      title: lib/graph/flow/MinimumCostFlow.hpp
   - name: lib/graph/matching
     pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/matching/BipartiteMaximumMatching.hpp
+      title: lib/graph/matching/BipartiteMaximumMatching.hpp
     - icon: ':warning:'
-      path: lib/graph/matching/bipartite_matching.hpp
-      title: lib/graph/matching/bipartite_matching.hpp
-    - icon: ':warning:'
-      path: lib/graph/matching/stable_matching.hpp
-      title: lib/graph/matching/stable_matching.hpp
+      path: lib/graph/matching/StableMatching.hpp
+      title: lib/graph/matching/StableMatching.hpp
   - name: lib/graph/other
     pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/other/LowLink.hpp
+      title: lib/graph/other/LowLink.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/graph/other/SCC.hpp
+      title: lib/graph/other/SCC.hpp
     - icon: ':warning:'
       path: lib/graph/other/eularian_trail.hpp
       title: lib/graph/other/eularian_trail.hpp
-    - icon: ':heavy_check_mark:'
-      path: lib/graph/other/low_link.hpp
-      title: lib/graph/other/low_link.hpp
-    - icon: ':heavy_check_mark:'
-      path: lib/graph/other/scc.hpp
-      title: lib/graph/other/scc.hpp
+    - icon: ':x:'
+      path: lib/graph/other/topological_sort.hpp
+      title: lib/graph/other/topological_sort.hpp
   - name: lib/graph/shortest_path
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/shortest_path/bfs.hpp
       title: lib/graph/shortest_path/bfs.hpp
     - icon: ':heavy_check_mark:'
@@ -52,33 +55,76 @@ data:
   - name: lib/math
     pages:
     - icon: ':heavy_check_mark:'
-      path: lib/math/combination.hpp
-      title: lib/math/combination.hpp
+      path: lib/math/Combination.hpp
+      title: lib/math/Combination.hpp
     - icon: ':heavy_check_mark:'
-      path: lib/math/combination_fix_n.hpp
-      title: lib/math/combination_fix_n.hpp
-    - icon: ':heavy_check_mark:'
-      path: lib/math/matrix.hpp
-      title: lib/math/matrix.hpp
+      path: lib/math/CombinationFixN.hpp
+      title: lib/math/CombinationFixN.hpp
     - icon: ':warning:'
-      path: lib/math/prime_structure.hpp
-      title: lib/math/prime_structure.hpp
+      path: lib/math/DynamicModint.hpp
+      title: lib/math/DynamicModint.hpp
     - icon: ':heavy_check_mark:'
-      path: lib/math/static_modint.hpp
-      title: lib/math/static_modint.hpp
+      path: lib/math/Matrix.hpp
+      title: lib/math/Matrix.hpp
+    - icon: ':warning:'
+      path: lib/math/Prime.hpp
+      title: lib/math/Prime.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/StaticModint.hpp
+      title: lib/math/StaticModint.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/math/gcd.hpp
+      title: lib/math/gcd.hpp
   - name: lib/structure/other
     pages:
+    - icon: ':x:'
+      path: lib/structure/other/BinaryIndexedTree.hpp
+      title: lib/structure/other/BinaryIndexedTree.hpp
     - icon: ':heavy_check_mark:'
-      path: lib/structure/other/cartesian_tree.hpp
-      title: lib/structure/other/cartesian_tree.hpp
+      path: lib/structure/other/CartesianTree.hpp
+      title: lib/structure/other/CartesianTree.hpp
+    - icon: ':x:'
+      path: lib/structure/other/inversion_number.hpp
+      title: lib/structure/other/inversion_number.hpp
+  - name: lib/structure/segment_tree
+    pages:
+    - icon: ':warning:'
+      path: lib/structure/segment_tree/segment_tree.hpp
+      title: lib/structure/segment_tree/segment_tree.hpp
   - name: lib/structure/union_find
     pages:
     - icon: ':heavy_check_mark:'
-      path: lib/structure/union_find/union_find.hpp
-      title: lib/structure/union_find/union_find.hpp
+      path: lib/structure/union_find/UnionFind.hpp
+      title: lib/structure/union_find/UnionFind.hpp
+  - name: lib/utility
+    pages:
+    - icon: ':x:'
+      path: lib/utility/compression.hpp
+      title: lib/utility/compression.hpp
   verificationCategories:
   - name: test/aoj
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_11_C.test.cpp
+      title: test/aoj/ALDS1_11_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_11_D.test.cpp
+      title: test/aoj/ALDS1_11_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_12_B.test.cpp
+      title: test/aoj/ALDS1_12_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_12_C.test.cpp
+      title: test/aoj/ALDS1_12_C.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/ALDS1_1_B.test.cpp
+      title: test/aoj/ALDS1_1_B.test.cpp
+    - icon: ':x:'
+      path: test/aoj/ALDS1_5_D.test.cpp
+      title: test/aoj/ALDS1_5_D.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_1_A.test.cpp
+      title: test/aoj/GRL_1_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_3_A.test.cpp
       title: test/aoj/GRL_3_A.test.cpp
@@ -86,11 +132,20 @@ data:
       path: test/aoj/GRL_3_B.test.cpp
       title: test/aoj/GRL_3_B.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_3_C.test.cpp
+      title: test/aoj/GRL_3_C.test.cpp
+    - icon: ':x:'
+      path: test/aoj/GRL_4_B.test.cpp
+      title: test/aoj/GRL_4_B.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_A.test.cpp
       title: test/aoj/GRL_6_A.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/GRL_6_B.test.cpp
       title: test/aoj/GRL_6_B.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/GRL_7_A.test.cpp
+      title: test/aoj/GRL_7_A.test.cpp
   - name: test/library_checker
     pages:
     - icon: ':heavy_check_mark:'

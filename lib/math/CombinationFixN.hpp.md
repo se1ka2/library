@@ -11,8 +11,8 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"lib/math/combination_fix_n.hpp\"\ntemplate <typename M>\n\
-    struct combination_fix_n\n{\npublic:\n    combination_fix_n(long long n, int maxk)\
+  bundledCode: "#line 1 \"lib/math/CombinationFixN.hpp\"\ntemplate <typename M>\n\
+    struct CombinationFixN\n{\npublic:\n    CombinationFixN(long long n, int maxk)\
     \ : n(n), maxk(maxk)\n    {\n        nP.resize(maxk + 1);\n        fact.resize(maxk\
     \ + 1);\n        ifact.resize(maxk + 1);\n        nP[0] = 1;\n        fact[0]\
     \ = 1;\n        for (int i = 1; i <= maxk; i++)\n        {\n            nP[i]\
@@ -24,7 +24,7 @@ data:
     \      return nP[k] * ifact[k];\n    }\n\nprivate:\n    long long n;\n    int\
     \ maxk;\n    std::vector<M> nP;\n    std::vector<M> fact;\n    std::vector<M>\
     \ ifact;\n};\n"
-  code: "template <typename M>\nstruct combination_fix_n\n{\npublic:\n    combination_fix_n(long\
+  code: "template <typename M>\nstruct CombinationFixN\n{\npublic:\n    CombinationFixN(long\
     \ long n, int maxk) : n(n), maxk(maxk)\n    {\n        nP.resize(maxk + 1);\n\
     \        fact.resize(maxk + 1);\n        ifact.resize(maxk + 1);\n        nP[0]\
     \ = 1;\n        fact[0] = 1;\n        for (int i = 1; i <= maxk; i++)\n      \
@@ -38,16 +38,16 @@ data:
     \ ifact;\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: lib/math/combination_fix_n.hpp
+  path: lib/math/CombinationFixN.hpp
   requiredBy: []
-  timestamp: '2023-01-14 04:07:09+09:00'
+  timestamp: '2023-03-08 19:41:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/no_2130.test.cpp
-documentation_of: lib/math/combination_fix_n.hpp
+documentation_of: lib/math/CombinationFixN.hpp
 layout: document
 redirect_from:
-- /library/lib/math/combination_fix_n.hpp
-- /library/lib/math/combination_fix_n.hpp.html
-title: lib/math/combination_fix_n.hpp
+- /library/lib/math/CombinationFixN.hpp
+- /library/lib/math/CombinationFixN.hpp.html
+title: lib/math/CombinationFixN.hpp
 ---
