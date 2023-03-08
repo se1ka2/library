@@ -13,7 +13,7 @@ int main()
 {
     ll n, m;
     cin >> n >> m;
-    combination_fix_n<mint> com_n(n, m);
+    CombinationFixN<mint> com_n(n, m);
     mint ans = mint(2).pow(n);
     for (int i = 0; i < m; i++)
     {

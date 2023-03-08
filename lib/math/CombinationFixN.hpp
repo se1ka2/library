@@ -1,8 +1,8 @@
 template <typename M>
-struct combination_fix_n
+struct CombinationFixN
 {
 public:
-    combination_fix_n(long long n, int maxk) : n(n), maxk(maxk)
+    CombinationFixN(long long n, int maxk) : n(n), maxk(maxk)
     {
         nP.resize(maxk + 1);
         fact.resize(maxk + 1);
